@@ -1,6 +1,10 @@
 import { Inter } from 'next/font/google'
 
+import { Nav } from '@/components'
+
 import '@/styles/global.scss'
+
+import classes from './layout.module.scss'
 
 interface RootLayoutProps {
     children: React.ReactNode
@@ -16,7 +20,10 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body className={inter.className}>{children}</body>
+            <body className={`${inter.className} ${classes.body}`}>
+                <Nav />
+                {children}
+            </body>
         </html>
     )
 }
