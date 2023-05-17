@@ -4,7 +4,7 @@ import { Nav } from '@/components'
 
 import '@/styles/global.scss'
 
-import classes from './layout.module.scss'
+import s from './layout.module.scss'
 
 interface RootLayoutProps {
     children: React.ReactNode
@@ -20,7 +20,7 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body className={`${inter.className} ${classes.body}`}>
+            <body className={`${inter.className} ${s.body}`}>
                 <Nav />
                 {children}
             </body>

@@ -1,8 +1,11 @@
+'use client'
+
 import { memo } from 'react'
 
-import { Link, GridIcon, CoinIcon, LoginIcon, LogoutIcon } from '@/components'
+import { CoinIcon, GridIcon, LoginIcon, LogoutIcon } from '../Icons'
+import { Link } from '../Link'
 
-import classes from './Nav.module.scss'
+import s from './Nav.module.scss'
 
 export const Nav: React.FC = memo(() => {
     const handleLogout = (): void => {
@@ -10,8 +13,8 @@ export const Nav: React.FC = memo(() => {
     }
 
     return (
-        <nav className={classes.nav}>
-            <div className={classes.groupNav}>
+        <nav className={s.nav}>
+            <div className={s.groupNav}>
                 <Link to="/dashboard">
                     <GridIcon />
                 </Link>
@@ -19,8 +22,8 @@ export const Nav: React.FC = memo(() => {
                     <CoinIcon />
                 </Link>
             </div>
-            <div className={classes.groupNav}>
-                <button>
+            <div className={s.groupNav}>
+                <button onClick={handleLogout}>
                     <LogoutIcon />
                 </button>
                 <Link to="/login">
