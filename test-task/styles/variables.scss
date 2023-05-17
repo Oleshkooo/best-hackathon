@@ -2,7 +2,7 @@
 $fs-base: calc(15px + 0.390625vw);
 $ff-inter: "Inter", sans-serif;
 $ff-system: -apple-system, BlinkMacSystemFont, $ff-inter, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+"Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
 // ? === === === === === === ===     font weight
 $fw-3xs: 100;
@@ -44,3 +44,18 @@ $transition-5t: 1.5s;
 
 // ? === === === === === === ===     z-index
 $z-toaster: 100000;
+
+// ? === === === === === === ===     colours
+$c-dark: #000000;
+$c-accent: #1A1833;
+$c-text-white: #FDFDFD;
+$c-text-primary: #414055;
+$c-text-secondary: #666575;
+$c-text-accent-income: #1CAA59;
+$c-text-accent-expense: #EB5454;
+$c-text-accent-cyan: #8B88B3;
+$c-icon: #AFAFAF;
+$c-icon-active: #FFFFFF;
+$c-bg-white: #FDFDFD;
+$c-bg-lightgray: #F6F5F5;
+$c-navbar: #14131F;

@@ -15,7 +15,7 @@ export const SummaryBox: React.FC = memo(({ title, value, percentage, color }: P
             <h5>{title}</h5>
             <h2>$ {value}</h2>
             <span>
-                <p style={{ color }}>{percentage}</p> за останні тижні
+                <p style={{ color }}>{percentage}%</p> за останні тижні
             </span>
         </section>
     )
