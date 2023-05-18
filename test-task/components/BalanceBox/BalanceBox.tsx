@@ -1,26 +1,25 @@
-import { memo } from 'react'
-
 import Image from 'next/image'
+import { memo } from 'react'
 
 import Card from '@/public/img/Card.svg'
 
-import classes from './BalanceBox.module.scss'
+import s from './BalanceBox.module.scss'
 
-interface Props {
+interface BalanceBoxProps {
     balance: string
     name: string
 }
 
-export const BalanceBox: React.FC = memo(({ balance, name }: Props) => {
+export const BalanceBox: React.FC<BalanceBoxProps> = memo(({ balance, name }) => {
     return (
-        <section className={classes.section}>
+        <section className={s.section}>
             <h3>Мій баланс</h3>
-            <span className={classes.span}>
+            <span className={s.span}>
                 <div>
                     <p>Баланс карток та готівки</p>
                     <h2>$ {balance}</h2>
                 </div>
-                <div className={classes.imgContainer}>
+                <div className={s.imgContainer}>
                     <Image src={Card} alt={name} />
                     <h4>{name}</h4>
                 </div>

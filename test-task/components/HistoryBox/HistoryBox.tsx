@@ -1,24 +1,24 @@
 import { memo } from 'react'
 
-import classes from './HistoryBox.module.scss'
+import { type Transaction } from '@/app/dashboard/page'
 
-import type { Transaction } from '@/app/dashboard/page'
+import s from './HistoryBox.module.scss'
 
-interface Props {
+interface HistoryBoxProps {
     transaction: Transaction[]
 }
 
-export const HistoryBox: React.FC = memo(({ transaction }: Props) => {
+export const HistoryBox: React.FC<HistoryBoxProps> = memo(({ transaction }) => {
     return (
-        <section className={classes.section}>
+        <section className={s.section}>
             <h3>Історія транзакцій</h3>
             {transaction.map(t => (
-                <span className={classes.span} key={t.item}>
+                <span className={s.span} key={t.item}>
                     <div>
-                        <h4 className={classes.vendor}>{t.vendor}</h4>
-                        <h6 className={classes.item}>{t.item}</h6>
+                        <h4 className={s.vendor}>{t.vendor}</h4>
+                        <h6 className={s.item}>{t.item}</h6>
                     </div>
-                    <h4 className={classes.value}>-${t.value.toFixed(2)}</h4>
+                    <h4 className={s.value}>-${t.value.toFixed(2)}</h4>
                 </span>
             ))}
         </section>

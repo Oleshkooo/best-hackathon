@@ -1,17 +1,17 @@
 import { memo } from 'react'
 
-import classes from './SummaryBox.module.scss'
+import s from './SummaryBox.module.scss'
 
-interface Props {
+interface SummaryBoxProps {
     title: string
     value: number
     percentage: string
     color: string
 }
 
-export const SummaryBox: React.FC = memo(({ title, value, percentage, color }: Props) => {
+export const SummaryBox: React.FC<SummaryBoxProps> = memo(({ title, value, percentage, color }) => {
     return (
-        <section className={classes.section}>
+        <section className={s.section}>
             <h5>{title}</h5>
             <h2>$ {value}</h2>
             <span>
