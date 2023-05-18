@@ -22,7 +22,7 @@ export const Nav: React.FC = memo(() => {
                     <CoinIcon />
                 </Link>
             </div>
-            <div className={s.groupNav}>
+            <div className={`${s.groupNav} ${s.bottom}`}>
                 <button onClick={handleLogout}>
                     <LogoutIcon />
                 </button>

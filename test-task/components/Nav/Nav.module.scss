@@ -1,6 +1,7 @@
 @import "@/styles/fn";
 
 .nav {
+  position: static;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8,11 +9,11 @@
 
   padding: 30px 0;
   width: 90px;
-  height: 100vh;
   background-color: $c-navbar;
 }
 
 .groupNav {
+  position: fixed;
   display: flex;
   flex-direction: column;
   gap: 35px;
@@ -42,4 +43,8 @@
       }
     }
   }
+}
+
+.bottom {
+  bottom: 30px;
 }
