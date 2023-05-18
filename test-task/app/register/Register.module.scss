@@ -1,0 +1,77 @@
+@import "@/styles/fn";
+
+.main {
+  height: 100vh;
+  width: 100vw;
+
+  section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 50px;
+    gap: 45px;
+    background: $c-bg-lightgray;
+    border-radius: 30px;
+    margin: 15vh 30vw;
+    max-width: 600px;
+
+    h2 {
+      color: $c-accent;
+      font-size: 28px;
+    }
+  }
+}
+
+.span {
+  position: absolute;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  filter: blur(25px);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+
+
+  input {
+    width: 100%;
+    border: 1px solid transparent;
+    padding: 20px 30px;
+    background-color: $c-text-white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    color: black;
+    outline: none;
+    transition: $transition-1 $transition-1t;
+
+    &:focus {
+      border: 1px solid $c-dark;
+    }
+  }
+
+  button {
+    margin: auto;
+    margin-top: 45px;
+    padding: 20px 30px;
+    background: $c-accent;
+    border-radius: 10px;
+    border: 1px solid transparent;
+
+    transition: $transition-1 $transition-1t;
+
+    &:hover {
+      border-color: $c-accent;
+      background-color: $c-bg-white;
+      color: $c-accent;
+    }
+  }
+}
