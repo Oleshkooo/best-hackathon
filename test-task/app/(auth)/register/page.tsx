@@ -94,7 +94,7 @@ const Register: NextPage = () => {
                         <p className={s.account}>
                             Вже є обліковий запис? <Link to="/login">Увійти</Link>
                         </p>
-                        <Button type="submit">Увійти</Button>
+                        <Button type="submit">Зареєструватись</Button>
                     </form>
                 </section>
             </div>
