@@ -20,7 +20,7 @@ export const Navbar: React.FC = memo(() => {
         <div className={s.padding}>
             <nav className={s.Navbar}>
                 <div className={s.iconsGrop}>
-                    <Link to="/home">
+                    <Link to="/">
                         <HomeIcon />
                     </Link>
                     <Link to="/dashboard">

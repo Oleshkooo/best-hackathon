@@ -40,16 +40,19 @@
 
         .span {
           display: flex;
+          flex-wrap: wrap;
           justify-content: space-between;
           gap: 20px;
 
           input {
             width: 46%;
+            min-width: 40%;
           }
         }
 
         .desc {
           width: 100%;
+          min-width: 40%;
         }
       }
     }
