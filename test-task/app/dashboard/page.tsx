@@ -1,6 +1,6 @@
-import { BalanceBox, HistoryBox, SummaryBox } from '@/components'
+import { BalanceBox, HistoryBox, Spacer, SummaryBox } from '@/components'
 
-import classes from './Dashboard.module.scss'
+import s from './Dashboard.module.scss'
 
 export interface Transaction {
     vendor: string
@@ -41,33 +41,34 @@ const dummyTransactions: Transaction[] = [
 
 const Dashboard: React.FC = () => {
     return (
-        <main className={classes.main}>
+        <main className={s.main}>
             <SummaryBox
                 title="Загальний дохід"
-                value="120"
+                value={120}
                 percentage="+15"
                 color={textColourIncome}
             />
             <SummaryBox
                 title="Загальний дохід"
-                value="120"
+                value={120}
                 percentage="+15"
                 color={textColourExpense}
             />
             <SummaryBox
                 title="Загальний дохід"
-                value="120"
+                value={120}
                 percentage="+15"
                 color={textColourIncome}
             />
             <SummaryBox
                 title="Загальний дохід"
-                value="120"
+                value={120}
                 percentage="+15"
                 color={textColourExpense}
             />
             <HistoryBox transaction={dummyTransactions} />
             <BalanceBox balance={15981.213} name={'Oleh Khoma'} />
+            <Spacer y={2} />
         </main>
     )
 }

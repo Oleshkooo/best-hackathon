@@ -1,6 +1,7 @@
-import { Inter } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 
-import { Nav } from '@/components'
+import { Navbar } from '@/components'
 
 import '@/styles/global.scss'
 
@@ -10,7 +11,7 @@ interface RootLayoutProps {
     children: React.ReactNode
 }
 
-const inter = Inter({ subsets: ['latin', 'cyrillic', 'cyrillic-ext'] })
+const montserrat = Montserrat({ subsets: ['latin', 'cyrillic', 'cyrillic-ext'] })
 
 export const metadata = {
     title: 'Finance App',
@@ -20,8 +21,9 @@ export const metadata = {
 const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body className={`${inter.className} ${s.body}`}>
-                <Nav />
+            <body className={`${montserrat.className} ${s.body}`}>
+                <Toaster containerClassName="toaster" position="top-center" reverseOrder={false} />
+                <Navbar />
                 {children}
             </body>
         </html>

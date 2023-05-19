@@ -1,29 +1,26 @@
 @import "@/styles/fn";
 
 .section {
-    background-color: $c-bg-white;
-    color: $c-dark;
-    border-radius: 10px;
+    width: 100%;
+    padding: 40px 25px;
 
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: start;
-    padding: 40px 25px;
     gap: 40px;
-    width: 100%;
-}
 
-.span {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+    border-radius: 10px;
+    color: $c-dark;
+    background-color: $c-bg-white;
 
-    gap: 30px;
+    h2 {
+        @include h2;
+    }
 
     p {
-        font-size: 16px;
+        @include body;
+        color: $c-text-secondary;
     }
 }
 
@@ -35,8 +32,6 @@
         position: absolute;
         bottom: 27px;
         left: 40px;
-
-        font-weight: normal;
-        font-size: 26px;
     }
+    @include h3;
 }

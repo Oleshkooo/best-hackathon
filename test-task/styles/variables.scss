@@ -2,7 +2,7 @@
 $fs-base: calc(15px + 0.390625vw);
 $ff-inter: "Inter", sans-serif;
 $ff-system: -apple-system, BlinkMacSystemFont, $ff-inter, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-"Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 
 // ? === === === === === === ===     font weight
 $fw-3xs: 100;
@@ -36,26 +36,31 @@ $sh-md: 0px 10px 50px;
 $transition-1: ease;
 $transition-2: cubic-bezier(0.17, 0.55, 0.55, 1);
 
-$transition-1t: 0.3s;
-$transition-2t: 0.5s;
-$transition-3t: 0.8s;
-$transition-4t: 1s;
-$transition-5t: 1.5s;
+$transition-1t: 0.2s;
+$transition-2t: 0.3s;
+$transition-3t: 0.5s;
+$transition-4t: 0.8s;
+$transition-5t: 1s;
+$transition-6t: 1.5s;
 
 // ? === === === === === === ===     z-index
+$z-navbar: 10000;
 $z-toaster: 100000;
 
-// ? === === === === === === ===     colours
+// ? === === === === === === ===     colors
 $c-dark: #000000;
-$c-accent: #1A1833;
-$c-text-white: #FDFDFD;
+$c-accent: #1a1833;
+$c-text-white: #fdfdfd;
 $c-text-primary: #414055;
 $c-text-secondary: #666575;
-$c-text-accent-income: #1CAA59;
-$c-text-accent-expense: #EB5454;
-$c-text-accent-cyan: #8B88B3;
-$c-icon: #AFAFAF;
-$c-icon-active: #FFFFFF;
-$c-bg-white: #FDFDFD;
-$c-bg-lightgray: #F6F5F5;
-$c-navbar: #14131F;
+$c-text-accent-income: #1caa59;
+$c-text-accent-expense: #eb5454;
+$c-text-accent-cyan: #8b88b3;
+$c-icon: #afafaf;
+$c-icon-active: #ffffff;
+$c-bg-white: #fdfdfd;
+$c-bg-lightgray: #f6f5f5;
+$c-navbar: #14131f;
+
+// ? === === === === === === ===     navbar
+$navbar-width: 80px;

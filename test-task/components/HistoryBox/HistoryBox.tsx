@@ -1,4 +1,4 @@
-import { memo } from 'react'
+import { memo, useMemo } from 'react'
 
 import { type Transaction } from '@/app/dashboard/page'
 
@@ -9,18 +9,22 @@ interface HistoryBoxProps {
 }
 
 export const HistoryBox: React.FC<HistoryBoxProps> = memo(({ transaction }) => {
+    const transactions = useMemo(() => {
+        return transaction.map(t => (
+            <div className={s.transaction} key={t.item}>
+                <div>
+                    <h4 className={s.vendor}>{t.vendor}</h4>
+                    <h6 className={s.description}>{t.item}</h6>
+                </div>
+                <h4 className={s.value}>-${t.value.toFixed(2)}</h4>
+            </div>
+        ))
+    }, [transaction])
+
     return (
-        <section className={s.section}>
+        <section className={s.HistoryBox}>
             <h3>Історія транзакцій</h3>
-            {transaction.map(t => (
-                <span className={s.span} key={t.item}>
-                    <div>
-                        <h4 className={s.vendor}>{t.vendor}</h4>
-                        <h6 className={s.item}>{t.item}</h6>
-                    </div>
-                    <h4 className={s.value}>-${t.value.toFixed(2)}</h4>
-                </span>
-            ))}
+            {transactions}
         </section>
     )
 })

@@ -6,24 +6,22 @@ import Card from '@/public/img/Card.svg'
 import s from './BalanceBox.module.scss'
 
 interface BalanceBoxProps {
-    balance: string
+    balance: number
     name: string
 }
 
 export const BalanceBox: React.FC<BalanceBoxProps> = memo(({ balance, name }) => {
     return (
         <section className={s.section}>
-            <h3>Мій баланс</h3>
-            <span className={s.span}>
-                <div>
-                    <p>Баланс карток та готівки</p>
-                    <h2>$ {balance}</h2>
-                </div>
-                <div className={s.imgContainer}>
-                    <Image src={Card} alt={name} />
-                    <h4>{name}</h4>
-                </div>
-            </span>
+            <h2>Мій баланс</h2>
+            <div>
+                <p>Баланс карток та готівки</p>
+                <h2>$ {balance}</h2>
+            </div>
+            <div className={s.imgContainer}>
+                <Image src={Card} alt={name} />
+                <h4>{name}</h4>
+            </div>
         </section>
     )
 })

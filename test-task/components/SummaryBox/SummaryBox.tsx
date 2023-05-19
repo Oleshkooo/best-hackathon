@@ -11,12 +11,14 @@ interface SummaryBoxProps {
 
 export const SummaryBox: React.FC<SummaryBoxProps> = memo(({ title, value, percentage, color }) => {
     return (
-        <section className={s.section}>
+        <section className={s.SummaryBox}>
             <h5>{title}</h5>
-            <h2>$ {value}</h2>
-            <span>
-                <p style={{ color }}>{percentage}%</p> за останні тижні
-            </span>
+            <div className={s.value}>
+                <h2>$ {value}</h2>
+                <span>
+                    <span style={{ color }}>{percentage}%</span> за останні тижні
+                </span>
+            </div>
         </section>
     )
 })

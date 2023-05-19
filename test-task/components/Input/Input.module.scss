@@ -1,0 +1,25 @@
+@import "@/styles/fn";
+
+$transition: $transition-1 $transition-2t;
+
+.Input {
+    @include h4-regular;
+
+    min-width: 300px;
+    padding: 15px 30px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+    outline: none;
+
+    background-color: $c-text-white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.06);
+    color: black;
+
+    transition: $transition;
+
+    &:focus {
+        border: 1px solid $c-accent;
+        transition: $transition;
+    }
+}

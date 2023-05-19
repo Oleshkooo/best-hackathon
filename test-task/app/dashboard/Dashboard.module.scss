@@ -1,16 +1,15 @@
 @import "@/styles/fn";
 
 .main {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: max-content;
-  grid-gap: 3%;
-  justify-content: stretch;
-  align-items: stretch;
-  height: 120vh;
+    width: 100%;
+    padding: 40px;
 
-  background-color: $c-bg-lightgray;
-  padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+    grid-gap: 3%;
+    justify-content: stretch;
+    align-items: stretch;
+
+    background-color: $c-bg-lightgray;
 }
-

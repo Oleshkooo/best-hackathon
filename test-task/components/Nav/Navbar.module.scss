@@ -1,0 +1,56 @@
+@import "@/styles/fn";
+
+.Navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: $navbar-width;
+    height: 100vh;
+    padding: 30px 0;
+
+    background-color: $c-navbar;
+    z-index: $z-navbar;
+}
+
+.padding {
+    padding-left: $navbar-width;
+}
+
+.iconsGrop {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+
+    * {
+        cursor: pointer;
+    }
+
+    button,
+    a {
+        width: 24px;
+    }
+
+    button,
+    svg {
+        transition: $transition-1 $transition-1t;
+    }
+
+    button {
+        background-color: transparent;
+
+        &:hover {
+            filter: invert(1);
+        }
+    }
+
+    a:hover {
+        svg {
+            filter: invert(1);
+        }
+    }
+}

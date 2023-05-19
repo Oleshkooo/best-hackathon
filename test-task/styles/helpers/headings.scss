@@ -1,53 +1,52 @@
 // ? === === === === === === ===     h1
 @mixin h1 {
-    // 105px
-    font-size: 5rem;
-
-    @include q-xs {
-        font-size: 3.8rem;
-    }
+    font-weight: $fw-xl;
 }
 
 // ? === === === === === === ===     h2
 @mixin h2 {
-    // 70px
-    font-size: 3.415rem;
-
-    @include q-xs {
-        font-size: 2.3rem;
-    }
+    font-weight: $fw-xl;
+    font-size: 28px;
 }
 
 // ? === === === === === === ===     h3
 @mixin h3 {
-    // 50px
-    font-size: 2.439rem;
-
-    @include q-xs {
-        font-size: 2rem;
-    }
+    font-weight: $fw-xl;
+    font-size: 22px;
 }
 
 // ? === === === === === === ===     h4
 @mixin h4 {
-    // 30px
-    font-size: 1.463rem;
+    font-weight: $fw-xl;
+    font-size: 18px;
+}
+@mixin h4-semi {
+    font-weight: $fw-lg;
+    font-size: 18px;
+}
+@mixin h4-medium {
+    font-weight: $fw-md;
+    font-size: 18px;
+}
+@mixin h4-regular {
+    font-weight: $fw-sm;
+    font-size: 18px;
 }
 
 // ? === === === === === === ===     h5
 @mixin h5 {
-    // 20px
-    font-size: 0.976rem;
+    font-weight: $fw-xl;
+    font-size: 15px;
 }
 
 // ? === === === === === === ===     h6
 @mixin h6 {
-    // 18px
-    font-size: 0.878rem;
+    font-weight: $fw-lg;
+    font-size: 15px;
 }
 
 // ? === === === === === === ===     body
 @mixin body {
-    // 16px
-    font-size: 0.78rem;
+    font-weight: $fw-md;
+    font-size: 13px;
 }

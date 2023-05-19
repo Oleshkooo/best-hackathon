@@ -1,29 +1,37 @@
 @import "@/styles/fn";
 
-.section {
-  background-color: $c-bg-white;
-  color: $c-dark;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  padding: 40px 25px;
-  max-height: 190px;
+.SummaryBox {
+    max-height: 190px;
+    padding: 40px 25px;
 
-  h5 {
-    color: $c-text-secondary;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
 
-  h2 {
-    color: $c-accent;
-  }
+    background-color: $c-bg-white;
+    color: $c-dark;
+    border-radius: 10px;
 
-  span {
-    color: $c-text-secondary;
-
-    p {
-      display: inline;
+    h2 {
+        @include h2;
+        color: $c-accent;
     }
-  }
+
+    h5 {
+        @include h5;
+        color: $c-text-secondary;
+    }
+
+    span {
+        @include body;
+        color: $c-text-secondary;
+    }
+}
+
+.value {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
