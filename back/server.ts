@@ -6,9 +6,7 @@ import helmet from 'helmet'
 
 import { type Express } from 'express'
 
-import { API_PATH, CLIENT_DIR, CLIENT_PUBLIC_DIR, WEBSITE_PATH } from '@/config'
-
-import { isProduction } from '@/utils'
+import { CLIENT_DIR, CLIENT_PUBLIC_DIR, WEBSITE_PATH } from '@/config'
 
 const server: Express = express()
 
@@ -25,12 +23,6 @@ try {
 
     server.use(express.static(CLIENT_DIR))
     server.use(express.static(CLIENT_PUBLIC_DIR))
-
-    isProduction() && server.use('/api', verifyToken)
-
-    server.use(`${API_PATH}/data`, dataRouter)
-    server.use(`${API_PATH}/order`, orderRouter)
-    server.use(`${API_PATH}/login`, loginRouter)
 
     server.get('*', (req, res) => {
         res.sendFile(WEBSITE_PATH)

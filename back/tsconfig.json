@@ -13,13 +13,13 @@
         "forceConsistentCasingInFileNames": true,
         "isolatedModules": true,
         "outDir": "./build",
-        "rootDir": "./src",
+        "rootDir": ".",
         "baseUrl": ".",
-        "typeRoots": ["src/types", "src/types.ts", "src/**/*.d.ts"],
+        "typeRoots": ["./types", "./types.ts", "./**/*.d.ts"],
         "paths": {
-            "@/*": ["./src/*"]
+            "@/*": ["./*"]
         }
     },
-    "include": ["src", "src/**/*"],
+    "include": ["./**/*", "utils"],
     "exclude": ["node_modules", "build", "dist", "example", "rollup.config.js", "rollup.config.mjs"]
 }
