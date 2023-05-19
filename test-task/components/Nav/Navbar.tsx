@@ -2,7 +2,7 @@
 
 import { memo } from 'react'
 
-import { CoinIcon, GridIcon, LoginIcon, LogoutIcon } from '../Icons'
+import { CoinIcon, GridIcon, LoginIcon, LogoutIcon, HomeIcon } from '../Icons'
 import { Link } from '../Link'
 
 import s from './Navbar.module.scss'
@@ -16,6 +16,9 @@ export const Navbar: React.FC = memo(() => {
         <div className={s.padding}>
             <nav className={s.Navbar}>
                 <div className={s.iconsGrop}>
+                    <Link to="/home">
+                        <HomeIcon />
+                    </Link>
                     <Link to="/dashboard">
                         <GridIcon />
                     </Link>
