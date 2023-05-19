@@ -16,8 +16,8 @@ const Home: NextPage = () => {
             <span>
                 <h1>Керуй своїми фінансами разом з BFCA503</h1>
                 <h2>Створюй, редагуй, аналізуй свої доходи, витрати, депозити та інше!</h2>
-                <Button type={'button'}>
-                    <Link href={'/dashboard'}>Почати зараз </Link>
+                <Button type="button">
+                    <Link href="/dashboard">Почати зараз </Link>
                 </Button>
             </span>
             <Image src={GraphHome} alt="graph" />
