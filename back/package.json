@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "pre": "pnpm i -P",
-        "start": "pnpm forever",
+        "start": "node ./build/index.js",
         "dev": "nodemon",
         "build": "NODE_ENV=production rollup -c",
         "lint": "eslint ."

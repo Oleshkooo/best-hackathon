@@ -7,12 +7,9 @@ import typescript from '@rollup/plugin-typescript'
 import copy from 'rollup-plugin-copy'
 import del from 'rollup-plugin-delete'
 
-const isProduction = process.env.NODE_ENV === 'production'
-const SRC_DIR = 'src'
+const SRC_DIR = '.'
 const BUILD_DIR = 'build'
 const STATIC_DIR = 'static'
-
-// const external = isProduction ? [] : [/node_modules/]
 const external = [/node_modules/]
 
 const plugins = [
@@ -23,14 +20,14 @@ const plugins = [
         tsconfig: './tsconfig.json',
     }),
     alias({
-        entries: [{ find: '@', replacement: `./${SRC_DIR}` }],
+        entries: [{ find: '@', replacement: SRC_DIR }],
     }),
     copy({
         targets: [
-            { src: `./${SRC_DIR}/${STATIC_DIR}/*`, dest: `./${BUILD_DIR}/${STATIC_DIR}` },
-            { src: `./.env`, dest: `./${BUILD_DIR}` },
-            { src: `./.env.production`, dest: `./${BUILD_DIR}` },
-            { src: `./package.json`, dest: `./${BUILD_DIR}` },
+            { src: `${SRC_DIR}/${STATIC_DIR}/*`, dest: `${BUILD_DIR}/${STATIC_DIR}` },
+            { src: `.env`, dest: BUILD_DIR },
+            { src: `.env.production`, dest: BUILD_DIR },
+            { src: `package.json`, dest: BUILD_DIR },
         ],
     }),
     resolve({
@@ -45,9 +42,9 @@ const plugins = [
 export default {
     plugins,
     external,
-    input: `./${SRC_DIR}/index.ts`,
+    input: `${SRC_DIR}/index.ts`,
     output: {
-        dir: `./${BUILD_DIR}`,
+        dir: BUILD_DIR,
         format: 'cjs',
         exports: 'none',
         strict: true,

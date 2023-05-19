@@ -2,6 +2,7 @@ import path from 'path'
 
 import { config } from 'dotenv'
 
+// env
 const DEFAULT_ENV_FILE = '.env'
 const NODE_ENV = process.env.NODE_ENV ?? 'production'
 
@@ -13,8 +14,11 @@ config({
 })
 
 // global
+export const isProduction: boolean = process.env.NODE_ENV === 'production'
+export const isDevelopment: boolean = process.env.NODE_ENV === 'development'
 export const PORT = process.env.PORT ?? 4000
 
+// express
 export const CLIENT_DIR = path.join(__dirname, 'static', 'client')
 export const CLIENT_PUBLIC_DIR = `${CLIENT_DIR}/public`
 export const WEBSITE_PATH = `${CLIENT_DIR}/index.html`

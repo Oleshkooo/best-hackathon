@@ -1,4 +1,4 @@
-import { PORT } from '@/config'
+import { PORT } from '@/config/env'
 import { server } from '@/server'
 
 const start = async () => {
