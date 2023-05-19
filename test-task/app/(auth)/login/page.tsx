@@ -3,7 +3,7 @@
 import { type NextPage } from 'next'
 import { useState } from 'react'
 
-import { Button, Input } from '@/components'
+import { Button, Input, Link } from '@/components'
 
 import s from '../Auth.module.scss'
 
@@ -37,6 +37,9 @@ const Login: NextPage = () => {
                             placeholder="Пароль"
                             required
                         />
+                        <p className={s.account}>
+                            Ще немає облікового запису? <Link to="/register">Зареєструватись</Link>
+                        </p>
                         <Button type="submit">Увійти</Button>
                     </form>
                 </section>
