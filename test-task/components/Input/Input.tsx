@@ -3,21 +3,36 @@ import { memo } from 'react'
 import s from './Input.module.scss'
 
 interface InputProps extends JSX.IntrinsicAttributes, React.HTMLAttributes<HTMLInputElement> {
-    state: string
-    setState: React.Dispatch<React.SetStateAction<string>>
+    value: string
+    setValue?: React.Dispatch<React.SetStateAction<string>>
+    onChange?: React.ChangeEventHandler<HTMLInputElement>
     type: 'text' | 'password' | 'email'
     name?: string
     required?: boolean
 }
 
 export const Input: React.FC<InputProps> = memo(
-    ({ state, setState, className = '', type, name, placeholder, required = false, ...props }) => {
-        const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setState(e.target.value)
-        }
+    ({
+        value,
+        setValue,
+        onChange,
+        className = '',
+        type,
+        name,
+        placeholder,
+        required = false,
+        ...props
+    }) => {
+        const handleChange =
+            onChange !== undefined
+                ? onChange
+                : (e: React.ChangeEvent<HTMLInputElement>) => {
+                      setValue?.(e.target.value)
+                  }
+
         return (
             <input
-                value={state}
+                value={value}
                 onChange={handleChange}
                 className={`${s.Input} ${className}`}
                 type={type}

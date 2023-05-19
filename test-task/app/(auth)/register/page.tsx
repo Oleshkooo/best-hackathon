@@ -48,32 +48,32 @@ const Register: NextPage = () => {
                     <h2>Реєстрація облікового запису</h2>
                     <form onSubmit={handleSubmit}>
                         <Input
-                            state={username}
-                            setState={setUsename}
+                            value={username}
+                            setValue={setUsename}
                             name="username"
                             type="text"
                             placeholder="Ім'я користувача"
                             required
                         />
                         <Input
-                            state={email}
-                            setState={setEmail}
+                            value={email}
+                            setValue={setEmail}
                             name="email"
                             type="text"
                             placeholder="E-mail"
                             required
                         />
                         <Input
-                            state={password}
-                            setState={setPassword}
+                            value={password}
+                            setValue={setPassword}
                             name="password"
                             type="password"
                             placeholder="Пароль"
                             required
                         />
                         <Input
-                            state={passwordConfirm}
-                            setState={setPasswordConfirm}
+                            value={passwordConfirm}
+                            setValue={setPasswordConfirm}
                             name="passwordConfirm"
                             type="password"
                             placeholder="Підтвердження паролю"
