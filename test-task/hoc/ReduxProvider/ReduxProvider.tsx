@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import { store } from '@/redux'
 
 interface ReduxProviderProps {
-    children: React.ReactNode
+    children?: React.ReactNode
 }
 
 export const ReduxProvider: React.FC<ReduxProviderProps> = memo(({ children }) => {

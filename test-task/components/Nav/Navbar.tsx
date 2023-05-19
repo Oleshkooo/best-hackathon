@@ -1,15 +1,19 @@
 'use client'
 
+import { signOut } from 'next-auth/react'
 import { memo } from 'react'
 
-import { CoinIcon, GridIcon, LoginIcon, LogoutIcon, HomeIcon } from '../Icons'
+import { CoinIcon, GridIcon, HomeIcon, LoginIcon, LogoutIcon } from '../Icons'
 import { Link } from '../Link'
 
 import s from './Navbar.module.scss'
 
 export const Navbar: React.FC = memo(() => {
     const handleLogout = (): void => {
-        // logout stuff
+        void signOut({
+            redirect: true,
+            callbackUrl: '/',
+        })
     }
 
     return (

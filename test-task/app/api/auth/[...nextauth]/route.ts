@@ -3,10 +3,10 @@ import CredentialsProvider from 'next-auth/providers/credentials'
 
 import { prisma } from '@/server/db/prisma'
 
-const authOptions: NextAuthOptions = {
+export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
-            name: 'Credentials',
+            name: 'credentials',
 
             credentials: {
                 username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
@@ -33,6 +33,10 @@ const authOptions: NextAuthOptions = {
 
     session: {
         strategy: 'jwt',
+    },
+
+    pages: {
+        signIn: '/login',
     },
 }
 
