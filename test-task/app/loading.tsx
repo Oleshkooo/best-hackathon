@@ -1,11 +1,11 @@
 import { type NextPage } from 'next'
 
-// TODO create loading page
+import s from './main.module.scss'
 
 const Loading: NextPage = () => {
     return (
-        <main>
-            <h1>Завантаження...</h1>
+        <main className={s.Loading}>
+            <span className={s.spinner} />
         </main>
     )
 }

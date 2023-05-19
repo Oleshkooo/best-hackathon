@@ -6,7 +6,7 @@ import { Navbar } from '@/components'
 
 import '@/styles/global.scss'
 
-import s from './layout.module.scss'
+import s from './main.module.scss'
 
 interface RootLayoutProps {
     children: React.ReactNode
@@ -22,7 +22,7 @@ export const metadata = {
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body className={`${montserrat.className} ${s.body}`}>
+            <body className={`${montserrat.className} ${s.layout}`}>
                 <Toaster containerClassName="toaster" position="top-center" reverseOrder={false} />
                 <Navbar />
                 {children}

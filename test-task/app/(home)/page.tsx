@@ -17,7 +17,7 @@ const Home: NextPage = () => {
                     <Link href="/dashboard">Почати зараз </Link>
                 </Button>
             </span>
-            <Image src={GraphHome} alt="graph" />
+            <Image src={GraphHome} alt="graph" priority />
         </main>
     )
 }
