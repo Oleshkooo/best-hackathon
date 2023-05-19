@@ -6,7 +6,14 @@ declare module '*?inline' {
     export default src
 }
 
-type APIHandler<T> = (req: NextRequest, res: NextResponse) => NextResponse<T>
+type ApiHandler<T> = (req: Request) => NextResponse<T>
+
+interface ApiResponse<T> {
+    status: number
+    error: boolean
+    message: string
+    data?: T
+}
 
 type FullUser = User & {
     transactions: Transaction[]
