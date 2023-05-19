@@ -19,7 +19,7 @@ export const BalanceBox: React.FC<BalanceBoxProps> = memo(({ balance, name }) =>
                 <h2>$ {balance}</h2>
             </div>
             <div className={s.imgContainer}>
-                <Image src={Card} alt={name} />
+                <Image priority src={Card} alt={name} />
                 <h4>{name}</h4>
             </div>
         </section>

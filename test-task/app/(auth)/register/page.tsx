@@ -4,7 +4,7 @@ import { type NextPage } from 'next'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 
-import { Button, Input } from '@/components'
+import { Button, Input, Link } from '@/components'
 
 import s from '../Auth.module.scss'
 
@@ -17,13 +17,27 @@ const Register: NextPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
+        const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+
         if (password !== passwordConfirm) {
             toast.error('Паролі не співпадають')
+            return
         }
 
-        // TODO validation
-        // username can`t contain @
-        // email must contain @
+        if (password.length < 8) {
+            toast.error('Пароль занадто короткий (менше 8 символів)')
+            return
+        }
+
+        if (username.length < 8) {
+            toast.error("Ім'я занадто коротке (менше 8 символів)")
+            return
+        }
+
+        if (format.test(username)) {
+            toast.error('В імені не повинно бути спеціальних символів')
+            return
+        }
 
         const res = await fetch('/api/auth/register', {
             method: 'POST',
@@ -37,8 +51,6 @@ const Register: NextPage = () => {
             }),
         })
         const data = await res.json()
-
-        console.log(data)
     }
 
     return (
@@ -48,38 +60,41 @@ const Register: NextPage = () => {
                     <h2>Реєстрація облікового запису</h2>
                     <form onSubmit={handleSubmit}>
                         <Input
-                            state={username}
-                            setState={setUsename}
+                            value={username}
+                            setValue={setUsename}
                             name="username"
                             type="text"
                             placeholder="Ім'я користувача"
                             required
                         />
                         <Input
-                            state={email}
-                            setState={setEmail}
+                            value={email}
+                            setValue={setEmail}
                             name="email"
-                            type="text"
+                            type="email"
                             placeholder="E-mail"
                             required
                         />
                         <Input
-                            state={password}
-                            setState={setPassword}
+                            value={password}
+                            setValue={setPassword}
                             name="password"
                             type="password"
                             placeholder="Пароль"
                             required
                         />
                         <Input
-                            state={passwordConfirm}
-                            setState={setPasswordConfirm}
+                            value={passwordConfirm}
+                            setValue={setPasswordConfirm}
                             name="passwordConfirm"
                             type="password"
                             placeholder="Підтвердження паролю"
                             required
                         />
-                        <Button type="submit">Увійти</Button>
+                        <p className={s.account}>
+                            Вже є обліковий запис? <Link to="/login">Увійти</Link>
+                        </p>
+                        <Button type="submit">Зареєструватись</Button>
                     </form>
                 </section>
             </div>
