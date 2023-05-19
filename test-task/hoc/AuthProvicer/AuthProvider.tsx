@@ -1,7 +1,9 @@
+'use server'
+
 import { getServerSession } from 'next-auth/next'
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { AuthProviderClient } from '@/hoc/AuthProvicer/AuthProviderClient'
+import { AuthProviderClient } from '@/hoc/AuthProvicer/AuthProvider.client'
 
 interface AuthProviderProps {
     children?: React.ReactNode

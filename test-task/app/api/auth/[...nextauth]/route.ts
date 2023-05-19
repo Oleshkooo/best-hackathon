@@ -38,6 +38,14 @@ export const authOptions: NextAuthOptions = {
     pages: {
         signIn: '/login',
     },
+
+    callbacks: {
+        session: async ({ session, token }) => {
+            // @ts-expect-error
+            session.user = token.user
+            return await Promise.resolve(session)
+        },
+    },
 }
 
 const handler = NextAuth(authOptions)
