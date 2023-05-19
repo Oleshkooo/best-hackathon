@@ -1,6 +1,8 @@
+import { type NextPage } from 'next'
+
 // TODO create loading page
 
-const Loading: React.FC = () => {
+const Loading: NextPage = () => {
     return (
         <main>
             <h1>Завантаження...</h1>

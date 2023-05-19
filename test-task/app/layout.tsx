@@ -1,3 +1,4 @@
+import { type NextPage } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
@@ -18,7 +19,7 @@ export const metadata = {
     description: 'Finance App',
 }
 
-const RootLayout: React.FC<RootLayoutProps> = ({ children }) => {
+const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
             <body className={`${montserrat.className} ${s.body}`}>

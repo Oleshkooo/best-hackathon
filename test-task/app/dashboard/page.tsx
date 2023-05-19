@@ -1,3 +1,5 @@
+import { type NextPage } from 'next'
+
 import { BalanceBox, HistoryBox, Spacer, SummaryBox } from '@/components'
 
 import s from './Dashboard.module.scss'
@@ -39,7 +41,7 @@ const dummyTransactions: Transaction[] = [
     },
 ]
 
-const Dashboard: React.FC = () => {
+const Dashboard: NextPage = () => {
     return (
         <main className={s.main}>
             <SummaryBox

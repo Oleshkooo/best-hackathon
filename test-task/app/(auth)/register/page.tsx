@@ -1,5 +1,6 @@
 'use client'
 
+import { type NextPage } from 'next'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 
@@ -7,7 +8,7 @@ import { Button, Input } from '@/components'
 
 import s from '../Auth.module.scss'
 
-const Register: React.FC = () => {
+const Register: NextPage = () => {
     const [username, setUsename] = useState<string>('')
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')

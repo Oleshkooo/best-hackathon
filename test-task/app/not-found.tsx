@@ -1,8 +1,10 @@
 'use client'
 
+import { type NextPage } from 'next'
+
 // TODO create not-found page
 
-const NotFound: React.FC = () => {
+const NotFound: NextPage = () => {
     return (
         <main>
             <h1>404 | Cторінку не знайдено</h1>

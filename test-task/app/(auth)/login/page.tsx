@@ -1,12 +1,13 @@
 'use client'
 
+import { type NextPage } from 'next'
 import { useState } from 'react'
 
 import { Button, Input } from '@/components'
 
 import s from '../Auth.module.scss'
 
-const Login: React.FC = () => {
+const Login: NextPage = () => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
 
