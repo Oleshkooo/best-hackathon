@@ -22,7 +22,7 @@ export const Navbar: React.FC = memo(() => {
                     <Link to="/dashboard">
                         <GridIcon />
                     </Link>
-                    <Link to="/hmm">
+                    <Link to="/transactions">
                         <CoinIcon />
                     </Link>
                 </div>

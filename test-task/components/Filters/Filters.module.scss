@@ -1,0 +1,25 @@
+@import "@/styles/fn";
+
+.Filters {
+  padding: 40px 25px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  background-color: $c-bg-white;
+  color: $c-dark;
+  border-radius: 10px;
+
+  .h5 {
+    @include h5;
+
+    font-size: 18px;
+  }
+
+  .span {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+}
