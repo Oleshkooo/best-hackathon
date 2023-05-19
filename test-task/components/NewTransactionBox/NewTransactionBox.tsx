@@ -28,14 +28,14 @@ export const NewTransactionBox: React.FC<NewTransactionBoxProps> = memo(({ title
                         <span className={s.span}>
                             <Input
                                 state={sum}
-                                setState={setSum}
+                                setValue={setSum}
                                 type="text"
                                 name="sum"
                                 placeholder="Сума"
                             />
                             <Input
                                 state={name}
-                                setState={setName}
+                                setValue={setName}
                                 type="text"
                                 name="name"
                                 placeholder="Назва"
@@ -44,7 +44,7 @@ export const NewTransactionBox: React.FC<NewTransactionBoxProps> = memo(({ title
                         <Input
                             className={s.desc}
                             state={description}
-                            setState={setDescription}
+                            setValue={setDescription}
                             type="text"
                             name="description"
                             placeholder="Опис"

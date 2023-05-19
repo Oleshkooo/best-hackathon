@@ -10,8 +10,8 @@ interface HistoryBoxProps {
 
 export const HistoryBox: React.FC<HistoryBoxProps> = memo(({ transaction }) => {
     const transactions = useMemo(() => {
-        return transaction.map(t => (
-            <div className={s.transaction} key={t.item}>
+        return transaction.map((t, i) => (
+            <div className={s.transaction} key={i}>
                 <div>
                     <h4 className={s.vendor}>{t.vendor}</h4>
                     <h6 className={s.description}>{t.item}</h6>
