@@ -1,2 +1,4 @@
-export * from './Login'
-export * from './Register'
+export * from './Auth'
+export * from './Dashboard'
+export * from './Home'
+export * from './Transactions'

@@ -1,5 +1,3 @@
-'use client'
-
 import { useCallback } from 'react'
 
 type UseScrollSelector = () => (selector: string) => void

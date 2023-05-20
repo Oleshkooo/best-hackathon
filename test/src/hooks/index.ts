@@ -1,2 +1,2 @@
-export * from "./useInput";
-export * from "./useScrollSelector";
+export * from './useInput'
+export * from './useScrollSelector'

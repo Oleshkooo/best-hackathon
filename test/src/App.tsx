@@ -1,31 +1,37 @@
 import { Toaster } from 'react-hot-toast'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { Login, Register } from '@/pages'
-
 import { Providers } from '@/Providers'
+import { Navbar, ProtectedRoute } from '@/components'
+import { Dashboard, Home, Login, Register, Transactions } from '@/pages'
 
-import Dashboard from './components/Dashboard'
-import Home from './components/Home'
-import Transactions from './components/Transactions'
-
-import Navbar from './assets/Navbar/Navbar'
+import s from './index.module.scss'
 
 function App() {
     return (
         <BrowserRouter>
             <Toaster containerClassName="toaster" position="top-center" reverseOrder={false} />
-            <div
-                style={{
-                    display: 'flex',
-                }}
-            >
+            <div className={s.layout}>
                 <Providers>
                     <Navbar />
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/dashboard" element={<Dashboard />} />
-                        <Route path="/transactions" element={<Transactions />} />
+                        <Route
+                            path="/dashboard"
+                            element={
+                                <ProtectedRoute>
+                                    <Dashboard />
+                                </ProtectedRoute>
+                            }
+                        />
+                        <Route
+                            path="/transactions"
+                            element={
+                                <ProtectedRoute>
+                                    <Transactions />
+                                </ProtectedRoute>
+                            }
+                        />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                     </Routes>
