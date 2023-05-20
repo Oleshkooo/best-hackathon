@@ -12,12 +12,6 @@
     border-radius: 10px;
     color: $c-dark;
     background-color: $c-bg-white;
-}
-
-.transaction {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
 
     h3 {
         @include h3;
@@ -27,15 +21,25 @@
         @include h4;
     }
 
+    h5 {
+        @include h5;
+        color: $c-text-secondary;
+    }
+
     h6 {
         @include h6;
     }
 
     p {
         @include body;
-
         color: $c-text-secondary;
     }
+}
+
+.transaction {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 
     .vendor {
         color: $c-text-primary;

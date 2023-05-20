@@ -15,12 +15,16 @@ export const HistoryBox: React.FC<HistoryBoxProps> = memo(({ transactions }) => 
             return null
         }
 
+        if (transactions.length === 0) {
+            return <h5>Історія транзакцій порожня</h5>
+        }
+
         return transactions?.map((t, i) => (
             <TransactionDetails
-                value={t.value}
-                date={t.date}
-                description={t.item}
-                vendor={t.vendor}
+                title={t.title}
+                value={t.amount.toString()}
+                date={t.date.toLocaleDateString()}
+                description={t.description ?? ''}
                 key={i}
             />
         ))

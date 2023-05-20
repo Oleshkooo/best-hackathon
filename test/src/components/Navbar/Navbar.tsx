@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { CoinIcon, GridIcon, HomeIcon, LoginIcon, LogoutIcon } from '@/components'
@@ -9,7 +8,7 @@ import s from './Navbar.module.scss'
 
 export const Navbar: React.FC = () => {
     const dispatch = useAppDispatch()
-    const user = useAppSelector(state => state.user.user)
+    const user = useAppSelector(state => state.user)
     const navigate = useNavigate()
 
     const handleLogout = () => {
@@ -17,10 +16,6 @@ export const Navbar: React.FC = () => {
         dispatch(action)
         navigate('/login')
     }
-
-    useEffect(() => {
-        console.log(user)
-    }, [user])
 
     return (
         <div className={s.padding}>

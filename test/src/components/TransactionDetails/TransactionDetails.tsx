@@ -6,14 +6,14 @@ import { useInput } from '@/hooks'
 import s from './TransactionDetails.module.scss'
 
 interface TransactionDetailsProps {
-    vendor: string
+    title: string
     description: string
     date: string
     value: string
 }
 
 export const TransactionDetails: React.FC<TransactionDetailsProps> = ({
-    vendor,
+    title,
     description,
     date,
     value,
@@ -21,7 +21,7 @@ export const TransactionDetails: React.FC<TransactionDetailsProps> = ({
     const valueN = useInput(value)
     const descriptionN = useInput(description)
     const dateN = useInput(date)
-    const vendorN = useInput(vendor)
+    const titleN = useInput(title)
     const [isEditing, setIsEditing] = useState<boolean>(false)
 
     const formatDateTime = (timestamp: string): string => {
@@ -55,9 +55,9 @@ export const TransactionDetails: React.FC<TransactionDetailsProps> = ({
         <div className={s.transaction}>
             <div>
                 {isEditing ? (
-                    <Input value={vendorN.value} setValue={vendorN.setValue} type="text" />
+                    <Input value={titleN.value} setValue={titleN.setValue} type="text" />
                 ) : (
-                    <h4 className={s.vendor}>{vendorN.value}</h4>
+                    <h4 className={s.title}>{titleN.value}</h4>
                 )}
                 {isEditing ? (
                     <Input

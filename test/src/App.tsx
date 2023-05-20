@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Providers } from '@/Providers'
 import { Navbar, ProtectedRoute } from '@/components'
 import { Dashboard, Home, Login, Register, Transactions } from '@/pages'
+import '@/styles/global.scss'
 
 import s from './index.module.scss'
 
