@@ -17,7 +17,7 @@ const Register: NextPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
+        const format = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/
 
         if (password !== passwordConfirm) {
             toast.error('Паролі не співпадають')
@@ -30,7 +30,7 @@ const Register: NextPage = () => {
         }
 
         if (username.length < 8) {
-            toast.error("Ім'я занадто коротке (менше 8 символів)")
+            toast.error('Ім`я занадто коротке (менше 8 символів)')
             return
         }
 
