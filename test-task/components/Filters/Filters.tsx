@@ -19,7 +19,7 @@ export const Filters: React.FC = memo(() => {
             </span>
             <span className={s.span}>
                 <h5>Пошук</h5>
-                <Input state={name} setValue={setName} type="text" placeholder="Назва, опис" />
+                <Input value={name} setValue={setName} type="text" placeholder="Назва, опис" />
             </span>
         </section>
     )
