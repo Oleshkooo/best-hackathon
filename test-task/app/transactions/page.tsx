@@ -1,10 +1,12 @@
 import { type NextPage } from 'next'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 
-import { HistoryBox, NewTransactionBox, Filters } from '@/components'
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import { type Transaction } from '@/app/dashboard/page'
+import { Filters, HistoryBox, NewTransactionBox } from '@/components'
 
 import s from './Transactions.module.scss'
-
-import type { Transaction } from '@/app/dashboard/page'
 
 const dummyTransactions: Transaction[] = [
     {
@@ -34,7 +36,14 @@ const dummyTransactions: Transaction[] = [
     },
 ]
 
-const Transactions: NextPage = () => {
+// @ts-expect-error
+const Transactions: NextPage = async () => {
+    const session = await getServerSession(authOptions)
+
+    if (session == null) {
+        redirect('/login')
+    }
+
     return (
         <main className={s.Transactions}>
             <div className={s.fHalf}>

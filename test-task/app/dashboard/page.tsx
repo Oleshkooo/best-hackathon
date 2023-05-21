@@ -1,5 +1,8 @@
 import { type NextPage } from 'next'
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
 
+import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { BalanceBox, HistoryBox, Spacer, SummaryBox } from '@/components'
 
 import s from './Dashboard.module.scss'
@@ -41,7 +44,14 @@ const dummyTransactions: Transaction[] = [
     },
 ]
 
-const Dashboard: NextPage = () => {
+// @ts-expect-error
+const Dashboard: NextPage = async () => {
+    const session = await getServerSession(authOptions)
+
+    if (session == null) {
+        redirect('/login')
+    }
+
     return (
         <main className={s.main}>
             <SummaryBox
