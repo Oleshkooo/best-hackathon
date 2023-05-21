@@ -1,7 +1,7 @@
 'use client'
 
 import { signOut, useSession } from 'next-auth/react'
-import { memo, useMemo } from 'react'
+import { memo } from 'react'
 
 import { CoinIcon, GridIcon, HomeIcon, LoginIcon, LogoutIcon } from '../Icons'
 import { Link } from '../Link'
@@ -18,7 +18,7 @@ export const NavbarClient: React.FC = memo(() => {
         })
     }
 
-    const LogButton = useMemo(() => {
+    const LogButton = (() => {
         if (status === 'authenticated') {
             return (
                 <button onClick={handleLogout}>
@@ -32,7 +32,7 @@ export const NavbarClient: React.FC = memo(() => {
                 <LoginIcon />
             </Link>
         )
-    }, [status])
+    })()
 
     return (
         <div className={s.padding}>
