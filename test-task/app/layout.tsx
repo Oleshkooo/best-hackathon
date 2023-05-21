@@ -7,6 +7,7 @@ import { Navbar } from '@/components'
 
 import '@/styles/global.scss'
 
+import { AuthProvider } from './AuthProvider'
 import s from './main.module.scss'
 
 interface RootLayoutProps {
@@ -26,8 +27,10 @@ const RootLayout: NextPage<RootLayoutProps> = ({ session, children }) => {
         <html lang="en">
             <body className={`${montserrat.className} ${s.layout}`}>
                 <Toaster containerClassName="toaster" position="top-center" reverseOrder={false} />
-                <Navbar />
-                {children}
+                <AuthProvider>
+                    <Navbar />
+                    {children}
+                </AuthProvider>
             </body>
         </html>
     )
