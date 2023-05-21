@@ -3,38 +3,11 @@ import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation'
 
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
-import { type Transaction } from '@/app/dashboard/page'
-import { Filters, HistoryBox, NewTransactionBox } from '@/components'
+import { getUser } from '@/app/dashboard/page'
 
-import s from './Transactions.module.scss'
+import { TransactionsClient } from './Transactions.client'
 
-const dummyTransactions: Transaction[] = [
-    {
-        vendor: 'Apple',
-        item: 'Mac Book',
-        value: 1000,
-    },
-    {
-        vendor: 'Apple',
-        item: 'Mac Book',
-        value: 1000,
-    },
-    {
-        vendor: 'Apple',
-        item: 'Mac Book',
-        value: 1000,
-    },
-    {
-        vendor: 'Apple',
-        item: 'Mac Book',
-        value: 1000,
-    },
-    {
-        vendor: 'Apple',
-        item: 'Mac Book',
-        value: 1000,
-    },
-]
+export const dynamic = 'force-dynamic'
 
 // @ts-expect-error
 const Transactions: NextPage = async () => {
@@ -44,17 +17,9 @@ const Transactions: NextPage = async () => {
         redirect('/login')
     }
 
-    return (
-        <main className={s.Transactions}>
-            <div className={s.fHalf}>
-                <NewTransactionBox title="Нова транзакція" />
-                <Filters />
-            </div>
-            <div className={s.sHalf}>
-                <HistoryBox transaction={dummyTransactions} />
-            </div>
-        </main>
-    )
+    const user = await getUser(session?.user?.email)
+
+    return <TransactionsClient user={user} />
 }
 
 export default Transactions

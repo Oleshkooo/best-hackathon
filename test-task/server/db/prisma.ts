@@ -11,7 +11,7 @@ export const prisma =
     new PrismaClient(
         isDevelopment
             ? {
-                  log: ['query'],
+                  //   log: ['query'],
               }
             : undefined,
     )

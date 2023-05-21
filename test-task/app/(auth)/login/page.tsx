@@ -4,12 +4,14 @@ import { type NextPage } from 'next'
 import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
 
-import { type ResData } from '@/app/api/auth/login/route'
+import { type ResData } from '@/app/api/login/route'
 import { Button, Input, Link } from '@/components'
 import { useInput } from '@/hooks'
 import { Fetch } from '@/utils'
 
 import s from '../Auth.module.scss'
+
+export const dynamic = 'force-dynamic'
 
 const Login: NextPage = () => {
     const { value: username, setValue: setUsername, reset: resetUsername } = useInput('')
@@ -18,7 +20,7 @@ const Login: NextPage = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        const res = await Fetch<ResData>('/api/auth/login', {
+        const res = await Fetch<ResData>('/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

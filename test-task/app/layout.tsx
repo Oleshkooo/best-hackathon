@@ -4,10 +4,9 @@ import { Montserrat } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 
 import { Navbar } from '@/components'
-
+import { AuthProvider } from '@/hoc'
 import '@/styles/global.scss'
 
-import { AuthProvider } from './AuthProvider'
 import s from './main.module.scss'
 
 interface RootLayoutProps {

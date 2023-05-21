@@ -1,6 +1,5 @@
+import { type Transaction } from '@prisma/client'
 import { memo, useMemo } from 'react'
-
-import { type Transaction } from '@/app/dashboard/page'
 
 import s from './HistoryBox.module.scss'
 
@@ -10,15 +9,20 @@ interface HistoryBoxProps {
 
 export const HistoryBox: React.FC<HistoryBoxProps> = memo(({ transaction }) => {
     const transactions = useMemo(() => {
-        return transaction.map((t, i) => (
-            <div className={s.transaction} key={i}>
-                <div>
-                    <h4 className={s.vendor}>{t.vendor}</h4>
-                    <h6 className={s.description}>{t.item}</h6>
+        if (!Array.isArray(transaction)) return 'Поки транзакцій немає'
+
+        return transaction.map((t, i) => {
+            const cn = t.type === 'INCOME' || t.type === 'DEPOSIT' ? s.income : s.expense
+            return (
+                <div className={s.transaction} key={i}>
+                    <div>
+                        <h4 className={s.vendor}>{t.title}</h4>
+                        <h6 className={s.description}>{t.description}</h6>
+                    </div>
+                    <h4 className={`${s.value} ${cn}`}>${t.amount.toFixed(2)}</h4>
                 </div>
-                <h4 className={s.value}>-${t.value.toFixed(2)}</h4>
-            </div>
-        ))
+            )
+        })
     }, [transaction])
 
     return (

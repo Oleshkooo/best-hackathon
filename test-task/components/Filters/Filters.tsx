@@ -4,8 +4,6 @@ import { memo, useState } from 'react'
 
 import { Input } from '../Input'
 
-import { TypeSelector } from '../TypeSelector'
-
 import s from './Filters.module.scss'
 
 export const Filters: React.FC = memo(() => {
@@ -15,7 +13,7 @@ export const Filters: React.FC = memo(() => {
         <section className={s.Filters}>
             <span className={s.span}>
                 <h5 className={s.h5}>Тип транзакції</h5>
-                <TypeSelector />
+                {/* <TypeSelector /> */}
             </span>
             <span className={s.span}>
                 <h5>Пошук</h5>

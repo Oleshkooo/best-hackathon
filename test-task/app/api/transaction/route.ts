@@ -40,7 +40,7 @@ export const POST: ApiHandler<PostResData> = async req => {
         const res: PostResData = {
             status: 400,
             error: true,
-            message: 'Неправильниа транзакція',
+            message: 'Неправильна транзакція',
         }
         return NextResponse.json(res)
     }
@@ -74,6 +74,23 @@ export const POST: ApiHandler<PostResData> = async req => {
         },
         include: {
             transactions: true,
+        },
+    })
+
+    // update user balance
+    const userBalance = newUser.transactions.reduce((acc, transaction) => {
+        if (transaction.type === 'INCOME' || transaction.type === 'DEPOSIT') {
+            return acc + transaction.amount
+        }
+        return acc - transaction.amount
+    }, 0)
+
+    await prisma.user.update({
+        where: {
+            id: userId,
+        },
+        data: {
+            balance: userBalance,
         },
     })
 

@@ -1,18 +1,27 @@
 'use client'
 
 import { type NextPage } from 'next'
-import { useState } from 'react'
+import { signIn } from 'next-auth/react'
 import { toast } from 'react-hot-toast'
 
+import { type ResData } from '@/app/api/register/route'
 import { Button, Input, Link } from '@/components'
+import { useInput } from '@/hooks'
+import { Fetch } from '@/utils'
 
 import s from '../Auth.module.scss'
 
+export const dynamic = 'force-dynamic'
+
 const Register: NextPage = () => {
-    const [username, setUsename] = useState<string>('')
-    const [email, setEmail] = useState<string>('')
-    const [password, setPassword] = useState<string>('')
-    const [passwordConfirm, setPasswordConfirm] = useState<string>('')
+    const { value: username, setValue: setUsename, reset: resetUsername } = useInput('')
+    const { value: email, setValue: setEmail, reset: resetEmail } = useInput('')
+    const { value: password, setValue: setPassword, reset: resetPassword } = useInput('')
+    const {
+        value: passwordConfirm,
+        setValue: setPasswordConfirm,
+        reset: resetPasswordConfirm,
+    } = useInput('')
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -39,7 +48,7 @@ const Register: NextPage = () => {
             return
         }
 
-        const res = await fetch('/api/auth/register', {
+        const res = await Fetch<ResData>('/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +59,28 @@ const Register: NextPage = () => {
                 password,
             }),
         })
-        const data = await res.json()
+
+        if (res.error) {
+            toast.error(res.message)
+            return
+        }
+        if (res.data === undefined) {
+            toast.error('Виникла помилка')
+        }
+
+        toast.success(res.message)
+
+        resetUsername()
+        resetEmail()
+        resetPassword()
+        resetPasswordConfirm()
+
+        void signIn('credentials', {
+            username,
+            password,
+            redirect: true,
+            callbackUrl: '/dashboard',
+        })
     }
 
     return (
