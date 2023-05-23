@@ -1,0 +1,25 @@
+@import "@/styles/fn";
+
+.ButtonSwitch {
+    @include h6;
+
+    padding: 20px 30px;
+    border-radius: 10px;
+
+    background-color: $c-text-white;
+    color: $c-accent;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+
+    font-size: 18px;
+
+    transition: $transition-1 $transition-1t;
+
+    &:hover {
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.Active {
+    background-color: $c-accent;
+    color: $c-text-white;
+}

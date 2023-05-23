@@ -1,0 +1,42 @@
+@import "@/styles/fn";
+
+.section {
+  width: 100%;
+  padding: 40px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 40px;
+
+  border-radius: 10px;
+  color: $c-dark;
+  background-color: $c-bg-white;
+
+  h2 {
+    @include h2;
+  }
+
+  p {
+    @include body;
+    color: $c-text-secondary;
+  }
+}
+
+.imgContainer {
+  position: relative;
+
+  h4 {
+    color: $c-text-white;
+    position: absolute;
+    bottom: 27px;
+    left: 40px;
+  }
+
+  img {
+    height: auto;
+  }
+
+  @include h3;
+}
