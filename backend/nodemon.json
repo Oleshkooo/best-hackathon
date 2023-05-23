@@ -1,6 +1,0 @@
-{
-    "watch": "src/**/*",
-    "ignore": ["node_modules/**/*", "build", "dist"],
-    "ext": "ts",
-    "exec": "rollup -c --silent && NODE_ENV=development node ./build/index.js"
-}
