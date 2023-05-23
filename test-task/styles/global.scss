@@ -2,12 +2,12 @@
 // @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 // ? initial
-@import "./initial/reset";
-@import "./initial/scrollbar";
-@import "./initial/hotToast";
+@import './initial/reset';
+@import './initial/scrollbar';
+@import './initial/hotToast';
 
 // ? variables
-@import "./fn";
+@import './fn';
 
 html,
 body {
