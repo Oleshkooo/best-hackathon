@@ -8,6 +8,54 @@ datasource db {
     url      = env("DB_CONNSTR")
 }
 
-model ID {
-    id String @id @default(auto()) @map("_id") @db.ObjectId
+// model ID {
+//     id String @id @default(auto()) @map("_id") @db.ObjectId
+// }
+
+enum UserType {
+    ADMIN
+    VOLONTEER
+    ORGANIZER
+}
+
+model User {
+    id          String     @id @default(auto()) @map("_id") @db.ObjectId
+    email       String     @unique
+    password    String
+    name        String
+    age         Int
+    rating      Int
+    description String
+    phone       Int        @unique
+    telegramId  String     @unique
+    jobs        String[]
+    type        UserType
+    Volonteer   Volonteer? @relation(fields: [volonteerId], references: [id])
+    Organizer   Organizer? @relation(fields: [organizerId], references: [id])
+    volonteerId String?    @db.ObjectId
+    organizerId String?    @db.ObjectId
+}
+
+model Volonteer {
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
+    expiriance String
+    hobby      String
+    interests  String
+    User       User[]
+    Project    Project? @relation(fields: [projectId], references: [id])
+    projectId  String?  @db.ObjectId
+}
+
+model Organizer {
+    id      String    @id @default(auto()) @map("_id") @db.ObjectId
+    User    User[]
+    Project Project[]
+}
+
+model Project {
+    id          String      @id @default(auto()) @map("_id") @db.ObjectId
+    goal        String
+    Volonteer   Volonteer[]
+    Organizer   Organizer?  @relation(fields: [organizerId], references: [id])
+    organizerId String?     @db.ObjectId
 }
