@@ -1,7 +1,7 @@
 import { type NextPage } from 'next'
 import { Toaster } from 'react-hot-toast'
 
-import '@/styles/global.scss'
+import '@/styles/global.css'
 
 interface RootLayoutProps {
     children: React.ReactNode
