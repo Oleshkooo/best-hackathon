@@ -35,14 +35,8 @@ const SideBar: React.FC = () => {
             <Image width={64} height={64} src={User} alt="user" />
         </Link>
         <p className="flex">Balance: {userData.balance}<Image width={16} height={16} src={Coin} alt="user" /></p>
-        {/* <Link className="rounded-lg p-3 w-[80%] text-left
-        bg-gray-100 hover:bg-gray-200 
-        transition" href='/services/recievers'>Recievers</Link>
-        <Link className="rounded-lg p-3 w-[80%] text-left
-        bg-gray-100 hover:bg-gray-200 
-        transition" href='/services/suppliers'>Suppliers</Link> */}
-        <Button href="/service/recievers" variant="ghost" className="w-full">Recievers</Button>
-        <Button href="/service/suppliers" variant="ghost" className="w-full">Suppliers</Button>
+        <Button href="/services/recievers" variant="ghost" className="w-full">Recievers</Button>
+        <Button href="/services/suppliers" variant="ghost" className="w-full">Suppliers</Button>
     </div>
 }
 
