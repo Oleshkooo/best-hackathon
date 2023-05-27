@@ -9,7 +9,7 @@ import {
     ToastProvider,
     ToastTitle,
     ToastViewport,
-} from '@/components/Toast'
+} from '@/components/ui/Toast'
 import { useToast } from '@/hooks/use-toast'
 
 //
