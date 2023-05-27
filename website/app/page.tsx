@@ -1,7 +1,11 @@
 import { type NextPage } from 'next'
 
-const Main: NextPage = () => {
-    return <></>
+const Index: NextPage = () => {
+    return (
+        <>
+            <h1>Yes</h1>
+        </>
+    )
 }
 
-export default Main
+export default Index
