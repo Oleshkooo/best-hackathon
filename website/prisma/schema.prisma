@@ -12,50 +12,46 @@ datasource db {
 //     id String @id @default(auto()) @map("_id") @db.ObjectId
 // }
 
-enum UserType {
-    ADMIN
-    VOLONTEER
-    ORGANIZER
-}
-
-model User {
-    id          String     @id @default(auto()) @map("_id") @db.ObjectId
-    email       String     @unique
+model Volunteer {
+    id          String    @id @default(auto()) @map("_id") @db.ObjectId
+    email       String    @unique
     password    String
     name        String
-    age         Int
-    rating      Int
+    balance     Int
     description String
-    phone       Int        @unique
-    telegramId  String     @unique
-    jobs        String[]
-    type        UserType
-    Volonteer   Volonteer? @relation(fields: [volonteerId], references: [id])
-    Organizer   Organizer? @relation(fields: [organizerId], references: [id])
-    volonteerId String?    @db.ObjectId
-    organizerId String?    @db.ObjectId
+    service     Service[]
 }
 
-model Volonteer {
-    id         String   @id @default(auto()) @map("_id") @db.ObjectId
-    expiriance String
-    hobby      String
-    interests  String
-    User       User[]
-    Project    Project? @relation(fields: [projectId], references: [id])
-    projectId  String?  @db.ObjectId
+model Transaction {
+    id     String @id @default(auto()) @map("_id") @db.ObjectId
+    name   String
+    price  Int
+    fromId String
+    toId   String
+    date   String
 }
 
-model Organizer {
-    id      String    @id @default(auto()) @map("_id") @db.ObjectId
-    User    User[]
-    Project Project[]
+enum ServiceType {
+    RECIEVER
+    SUPPLIER
 }
 
-model Project {
+model Service {
     id          String      @id @default(auto()) @map("_id") @db.ObjectId
-    goal        String
-    Volonteer   Volonteer[]
-    Organizer   Organizer?  @relation(fields: [organizerId], references: [id])
-    organizerId String?     @db.ObjectId
+    name        String
+    description String
+    type        ServiceType
+    price       Int
+    volunteer   Volunteer?  @relation(fields: [volunteerId], references: [id])
+    volunteerId String?     @db.ObjectId
+    message     Message[]
+}
+
+model Message {
+    id        String   @id @default(auto()) @map("_id") @db.ObjectId
+    text      String
+    fromId    String
+    toId      String
+    service   Service? @relation(fields: [serviceId], references: [id])
+    serviceId String?  @db.ObjectId
 }
