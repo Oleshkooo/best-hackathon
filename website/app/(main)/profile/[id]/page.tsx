@@ -1,8 +1,7 @@
 import { type NextPage } from 'next'
 import Image from 'next/image'
 
-import { Volunteer } from '@/app/layout'
-import { Chat } from '@/app/layout'
+import { type Chat, type Volunteer } from '@/app/layout'
 import ChatCard from '@/components/ChatCard'
 
 import User from '@/public/user.svg'
