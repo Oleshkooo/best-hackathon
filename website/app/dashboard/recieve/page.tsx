@@ -1,52 +1,35 @@
-import { type Service } from '@prisma/client'
+import { ServiceType } from '@prisma/client'
 import { type NextPage } from 'next'
 
 import { PageHeading } from '@/components/PageHeading'
 import { ServiceCard } from '@/components/ServiceCard'
-import Link from 'next/link'
+import { prisma } from '@/prisma'
 
-const Recieve: NextPage = () => {
-    const dummyServices: Service[] = [
-        {
-            id: 1,
-            name: 'test1',
-            description: 'desc1',
-            type: 'RECIEVER',
-            price: 1,
-            volunteerId: 1,
+const fetchRecieves = async () => {
+    return await prisma.service.findMany({
+        where: {
+            type: ServiceType.RECIEVER,
         },
-        {
-            id: 2,
-            name: 'test2',
-            description: 'desc2',
-            type: 'RECIEVER',
-            price: 2,
-            volunteerId: 2,
-        },
-        {
-            id: 3,
-            name: 'test3',
-            description: 'desc3',
-            type: 'RECIEVER',
-            price: 3,
-            volunteerId: 3,
-        },
-    ]
+    })
+}
+
+// @ts-expect-error Async Server Component
+const Recieve: NextPage = async () => {
+    const recieves = await fetchRecieves()
 
     return (
-        <div className="services flex flex-col gap-[40px]">
+        <div className="flex flex-col gap-[40px]">
             <PageHeading heading="Recieving services">
                 You can work for users here to earn coins!
             </PageHeading>
-            <main className="p-2 flex flex-col gap-4">
-                {dummyServices.map(service => (
-                    <Link className='hover:shadow transition' href={`/dashboard/${service.id}`}>
-                        <ServiceCard
-                            key={service.id}
-                            title={service.name}
-                            description={service.description}
-                        />
-                    </Link>
+            <main className="flex flex-col gap-4">
+                {recieves.map(service => (
+                    <ServiceCard
+                        key={service.id}
+                        id={service.id}
+                        title={service.name}
+                        description={service.description}
+                    />
                 ))}
             </main>
         </div>

@@ -1,3 +1,4 @@
+import { User } from 'lucide-react'
 import Link from 'next/link'
 
 import { Logo } from '@/components/Logo'
@@ -9,13 +10,26 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ children }) => {
     return (
+<<<<<<< HEAD
         <header className="sticky top-0 z-40 border-b bg-background flex items-center justify-between">
             <div className="h-16 flex items-center gap-10 py-4 pl-8 pr-4">
                 <Link href="/" className="flex items-center space-x-2">
                     <Logo />
                     <span className="font-bold">Voluntee</span>
+=======
+        <header className="sticky top-0 z-40 border-b bg-background">
+            <div className="container h-16 flex justify-between items-center py-4">
+                <div className="flex items-center gap-10">
+                    <Link href="/" className="flex items-center space-x-2">
+                        <Logo />
+                        <span className="font-bold">SkillSwap</span>
+                    </Link>
+                    <div className="flex items-center gap-1">{children}</div>
+                </div>
+                <Link href="/profile" className="rounded-full aspect-square bg-secondary p-2">
+                    <User size={18} />
+>>>>>>> oleh
                 </Link>
-                <div className="flex items-center gap-1">{children}</div>
             </div>
             <div className='flex text-center gap-5 w-full sm:w-[30%] mr-5'>
                 <Button variant='outline' className='w-[40%]' href='/dashboard/new'>New service</Button>
