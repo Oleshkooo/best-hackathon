@@ -3,6 +3,7 @@ import { type NextPage } from 'next'
 
 import { PageHeading } from '@/components/PageHeading'
 import { ServiceCard } from '@/components/ServiceCard'
+import Link from 'next/link'
 
 const Recieve: NextPage = () => {
     const dummyServices: Service[] = [
@@ -37,13 +38,15 @@ const Recieve: NextPage = () => {
             <PageHeading heading="Recieving services">
                 You can work for users here to earn coins!
             </PageHeading>
-            <main className="flex flex-col gap-4">
+            <main className="p-2 flex flex-col gap-4">
                 {dummyServices.map(service => (
-                    <ServiceCard
-                        key={service.id}
-                        title={service.name}
-                        description={service.description}
-                    />
+                    <Link className='hover:shadow transition' href={`/dashboard/${service.id}`}>
+                        <ServiceCard
+                            key={service.id}
+                            title={service.name}
+                            description={service.description}
+                        />
+                    </Link>
                 ))}
             </main>
         </div>

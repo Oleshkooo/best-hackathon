@@ -1,5 +1,6 @@
 import { type Service } from '@prisma/client'
 import { type NextPage } from 'next'
+import Link from 'next/link'
 
 import { PageHeading } from '@/components/PageHeading'
 import { ServiceCard } from '@/components/ServiceCard'
@@ -37,13 +38,15 @@ const Supply: NextPage = () => {
             <PageHeading heading="Supplying services">
                 You can hire users here to do work for you!
             </PageHeading>
-            <main className="flex flex-col gap-4">
+            <main className="p-2 flex flex-col gap-4">
                 {dummyServices.map(service => (
-                    <ServiceCard
-                        key={service.id}
-                        title={service.name}
-                        description={service.description}
-                    />
+                    <Link className='hover:shadow transition' href={`/dashboard/${service.id}`}>
+                        <ServiceCard
+                            key={service.id}
+                            title={service.name}
+                            description={service.description}
+                        />
+                    </Link>
                 ))}
             </main>
         </div>

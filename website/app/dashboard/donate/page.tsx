@@ -65,7 +65,8 @@ const DonatePage: NextPage = () => {
     }
 
     return (
-        <div className="pt-6 flex justify-center">
+        <div className="px-3 py-9 flex flex-col items-center gap-6">
+            <h2 className='text-3xl'>Donating</h2>
             <form className='w-[50%] flex flex-col gap-3' onSubmit={handleSubmit}>
                 <Input onChange={handleCoinsChange} type='number' name='price' placeholder='Amount of coins you wish to purchase' />
                 <Input type='text' maxLength={16} name='hex' placeholder='Card number' />
