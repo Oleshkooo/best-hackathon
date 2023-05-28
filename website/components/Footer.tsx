@@ -22,15 +22,6 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
                 >
                     503 Team
                 </a>
-                . Hosted on{' '}
-                <a
-                    href="https://vercel.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium underline underline-offset-4"
-                >
-                    Vercel
-                </a>
                 . The source code is available on{' '}
                 <a
                     href="https://github.com/Oleshkooo/best-hackathon"
