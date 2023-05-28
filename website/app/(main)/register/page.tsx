@@ -12,6 +12,8 @@ import { useInput } from '@/hooks/use-input'
 import { toast } from '@/hooks/use-toast'
 import { Fetch } from '@/utils/Fetch'
 
+export const dynamic = 'force-dynamic'
+
 const Register: NextPage = () => {
     const { value: name, reset: resetName, bind: bindName } = useInput('')
     const { value: email, reset: resetEmail, bind: bindEmail } = useInput('')

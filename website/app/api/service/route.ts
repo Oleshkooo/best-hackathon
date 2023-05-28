@@ -6,15 +6,14 @@ import { checkNullFields } from '@/utils/checkNullFields'
 
 // POST
 
-export type PostReqBody = Service
+export type PostReqBody = Omit<Service, 'id'>
 export type PostResData = ApiResponse<Service>
 
 export const POST: ApiHandler<PostResData> = async req => {
     try {
-        const { id, name, description, type, price, volunteerId } =
-            (await req.json()) as PostReqBody
+        const { name, description, type, price, volunteerId } = (await req.json()) as PostReqBody
 
-        const nullCkeck = checkNullFields({ id, name, description, type, price, volunteerId })
+        const nullCkeck = checkNullFields({ name, description, type, price, volunteerId })
         if (nullCkeck != null) {
             return NextResponse.json({
                 error: true,
@@ -47,7 +46,6 @@ export const POST: ApiHandler<PostResData> = async req => {
         // create service
         const service = await prisma.service.create({
             data: {
-                id,
                 name,
                 description,
                 type,

@@ -1,5 +1,6 @@
 import { Gem, HelpingHand, User } from 'lucide-react'
 import { type Metadata, type NextPage } from 'next'
+import { type SessionProviderProps } from 'next-auth/react'
 import { Inter } from 'next/font/google'
 
 import { Footer } from '@/components/Footer'
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 }
 
 interface RootLayoutProps {
+    session: SessionProviderProps['session']
     children: React.ReactNode
 }
 
@@ -37,15 +39,15 @@ export const navItems: NavItem[] = [
     },
     {
         title: 'Profile',
-        href: '/profile/1',
+        href: '/profile',
         icon: <User size={18} />,
     },
 ]
 
-const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
+const RootLayout: NextPage<RootLayoutProps> = ({ session, children }) => {
     return (
         <html lang="en">
-            <Providers>
+            <Providers session={session}>
                 <body
                     style={inter.style}
                     className="min-h-screen bg-background font-sans antialiased"

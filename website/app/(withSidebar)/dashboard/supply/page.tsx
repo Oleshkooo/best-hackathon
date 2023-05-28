@@ -1,9 +1,12 @@
 import { ServiceType } from '@prisma/client'
 import { type NextPage } from 'next'
+import Link from 'next/link'
 
+import { CardComponent } from '@/components/CardComponent'
 import { PageHeading } from '@/components/PageHeading'
-import { ServiceCard } from '@/components/ServiceCard'
 import { prisma } from '@/prisma'
+
+export const dynamic = 'force-dynamic'
 
 const fetchSupplies = async () => {
     return await prisma.service.findMany({
@@ -24,12 +27,9 @@ const Supply: NextPage = async () => {
             </PageHeading>
             <main className="p-2 flex flex-col gap-4">
                 {supplies.map(service => (
-                    <ServiceCard
-                        key={service.id}
-                        id={service.id}
-                        title={service.name}
-                        description={service.description}
-                    />
+                    <Link key={service.id} href={`/dashboard/${service.id}`}>
+                        <CardComponent title={service.name} description={service.description} />
+                    </Link>
                 ))}
             </main>
         </div>

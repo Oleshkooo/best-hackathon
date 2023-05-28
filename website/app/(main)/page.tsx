@@ -2,6 +2,8 @@ import { type NextPage } from 'next'
 
 import { Button } from '@/components/ui/Button'
 
+export const dynamic = 'force-dynamic'
+
 const Index: NextPage = () => {
     return (
         <div className="flex flex-col justify-center items-center text-center mt-32">

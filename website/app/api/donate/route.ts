@@ -58,6 +58,7 @@ export const POST: ApiHandler<PostResData> = async req => {
             data: volunteer,
         } satisfies PostResData)
     } catch (error) {
+        console.error(error)
         return NextResponse.json({
             error: true,
             status: 500,
