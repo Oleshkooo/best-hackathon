@@ -6,11 +6,11 @@ import { checkNullFields } from '@/utils/checkNullFields'
 
 // POST
 
-interface PostReqBody {
+export interface PostReqBody {
     volunteerId: string
     amount: number
 }
-type PostResData = ApiResponse<Volunteer>
+export type PostResData = ApiResponse<Volunteer>
 
 export const POST: ApiHandler<PostResData> = async req => {
     try {

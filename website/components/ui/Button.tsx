@@ -40,7 +40,11 @@ export interface ButtonProps
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, href, variant, size, ...props }, ref) => {
         if (href !== undefined) {
-            return <Link href={href} className={cn(buttonVariants({ variant, size, className }))} {...props} />
+            return (
+                <Link href={href} className={cn(buttonVariants({ variant, size, className }))}>
+                    {props.children}
+                </Link>
+            )
         }
 
         return (

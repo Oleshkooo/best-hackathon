@@ -1,4 +1,4 @@
-import { Chat } from "@/app/layout";
+import { type Service } from '@prisma/client'
 
 const dummyServices: Service[] = [
     {
@@ -7,7 +7,7 @@ const dummyServices: Service[] = [
         description: 'desc1',
         type: 'RECIEVER',
         price: 1,
-        volunteerId: 1
+        volunteerId: 1,
     },
     {
         id: 2,
@@ -15,7 +15,7 @@ const dummyServices: Service[] = [
         description: 'desc2',
         type: 'RECIEVER',
         price: 2,
-        volunteerId: 2
+        volunteerId: 2,
     },
     {
         id: 3,
@@ -23,7 +23,7 @@ const dummyServices: Service[] = [
         description: 'desc3',
         type: 'RECIEVER',
         price: 3,
-        volunteerId: 3
+        volunteerId: 3,
     },
 ]
 
@@ -32,11 +32,7 @@ interface ChatCardI {
 }
 
 const ChatCard: React.FC<ChatCardI> = ({ servicesId }) => {
-    return (
-        <div>
-            {servicesId}
-        </div>
-    )
+    return <div>{servicesId}</div>
 }
 
-export default ChatCard;
+export default ChatCard

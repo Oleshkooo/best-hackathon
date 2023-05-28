@@ -1,18 +1,16 @@
-interface DashboardHeaderProps {
-    heading: string
-    children?: React.ReactNode
-}
+import Link from 'next/link'
 
-const Header: React.FC<DashboardHeaderProps> = ({ heading, children }) => {
+import { Logo } from '@/components/Logo'
+
+export const Header: React.FC = () => {
     return (
-        <div className="flex items-center justify-between px-2">
-            <div className="grid gap-1">
-                <h1 className="font-heading text-3xl md:text-4xl">{heading}</h1>
-                {children != null && <p className="text-lg text-muted-foreground">{children}</p>}
+        <header className="sticky top-0 z-40 border-b bg-background">
+            <div className="container flex h-16 items-center justify-between py-4">
+                <Link href="/" className="flex items-center space-x-2">
+                    <Logo></Logo>
+                    <span className="font-bold">Voluntee</span>
+                </Link>
             </div>
-            
-        </div>
+        </header>
     )
 }
-
-export default Header;

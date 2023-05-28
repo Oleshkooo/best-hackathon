@@ -6,8 +6,8 @@ import { checkNullFields } from '@/utils/checkNullFields'
 
 // POST
 
-type PostReqBody = Transaction
-type PostResData = ApiResponse<Transaction>
+export type PostReqBody = Transaction
+export type PostResData = ApiResponse<Transaction>
 
 export const POST: ApiHandler<PostResData> = async req => {
     try {
