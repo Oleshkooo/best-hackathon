@@ -1,4 +1,4 @@
-import { Gem, HelpingHand } from 'lucide-react'
+import { Gem, HelpingHand, User } from 'lucide-react'
 import { type Metadata, type NextPage } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -35,6 +35,11 @@ export const navItems: NavItem[] = [
         href: '/dashboard/supply',
         icon: <Gem size={18} />,
     },
+    {
+        title: 'Profile',
+        href: '/profile/1',
+        icon: <User size={18} />,
+    },
 ]
 
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
@@ -44,7 +49,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
                 <body
                     style={inter.style}
                     className="min-h-screen bg-background font-sans antialiased"
-                >   
+                >
                     <div className="flex flex-col min-h-screen justify-between">
                         {children}
                         <div className="mb-auto" />

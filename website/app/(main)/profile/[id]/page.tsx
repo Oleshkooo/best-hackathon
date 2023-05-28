@@ -1,61 +1,81 @@
 import { type NextPage } from 'next'
 import Image from 'next/image'
 
-import { type Chat, type Volunteer } from '@/app/layout'
-import ChatCard from '@/components/ChatCard'
+import VolunteerCard from '@/components/VolunteerCard'
 
 import User from '@/public/user.svg'
 
+interface Volunteer {
+    id: string,
+    email: string,
+    password: string,
+    name: string,
+    balance: string,
+    description: string,
+}
+
+interface Service {
+    id: string
+    name: string
+    description: string
+    type: string
+    price: number
+    volunteer: Volunteer[]
+    volunteerId: string
+}
+
 const Profile: NextPage = () => {
     const userData: Volunteer = {
-        id: 1,
+        id: '1',
         email: 'ya@gmail.com',
         password: '1',
         name: 'John Doe',
-        balance: 13,
+        balance: '13',
         description: 'descProfile',
-        servicesId: ['1', '2', '3'],
-        messagesId: ['1', '2', '3'],
     }
 
-    const dummyChat: Chat[] = [
+    const usersData: Volunteer[] = [
         {
-            id: '1',
-            userAId: '1',
-            userBId: '2',
-            messages: [
-                {
-                    sender: '1',
-                    text: 'a',
-                },
-            ],
+            id: '4',
+            email: 'ya@gmail.com',
+            password: '1',
+            name: 'John Moe',
+            balance: '13',
+            description: 'descProfile',
         },
         {
             id: '2',
-            userAId: '1',
-            userBId: '2',
-            messages: [
-                {
-                    sender: '1',
-                    text: 'a',
-                },
-            ],
+            email: 'ya@gmail.com',
+            password: '1',
+            name: 'John Shoe',
+            balance: '13',
+            description: 'descProfile',
         },
         {
             id: '3',
-            userAId: '1',
-            userBId: '2',
-            messages: [
-                {
-                    sender: '1',
-                    text: 'a',
-                },
-            ],
+            email: 'ya@gmail.com',
+            password: '1',
+            name: 'John Shmoe',
+            balance: '13',
+            description: 'descProfile',
         },
+
+    ]
+
+    const servicesData: Service[] = [
+        {
+            id: '1',
+            name: 'name1',
+            description: 'desc1',
+            type: 'RECIEVE',
+            price: 2,
+            volunteer: usersData,
+            volunteerId: userData.id
+        }
     ]
 
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-5 justify-between">
             <Image
                 className="border-4 border-solid border-black rounded-full h-[128px]"
                 width={128}
@@ -63,16 +83,17 @@ const Profile: NextPage = () => {
                 src={User}
                 alt="user"
             />
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-[100%]">
                 <h2 className="text-3xl">{userData.name}</h2>
                 <p className="text-xl font-bold">About me:</p>
                 <p className="text-lg">{userData.description}</p>
                 <p className="text-xl font-bold">Active services:</p>
-                {userData.servicesId.length < 1 ? (
-                    <p>No active services :(</p>
-                ) : (
-                    userData.servicesId.map(i => <ChatCard servicesId={i} />)
-                )}
+                {servicesData.map(i =>
+                    i.volunteer.length < 1 ? (
+                        <p>No active services :(</p>
+                    ) : (
+                        i.volunteer.map(j => <VolunteerCard name={j.name} serviceName={i.name} />)
+                    ))}
             </div>
         </div>
     )
