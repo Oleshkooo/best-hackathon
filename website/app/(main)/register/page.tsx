@@ -1,80 +1,103 @@
 'use client'
 
+import { ChevronLeft } from 'lucide-react'
 import { type NextPage } from 'next'
+import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import { Icons } from '@/components/ui/Icons'
-import { Input } from '@/components/ui/Input'
+
+import { type PostReqBody, type PostResData } from '@/app/api/register/route'
 import { Button } from '@/components/ui/Button'
+import { Input } from '@/components/ui/Input'
+import { useInput } from '@/hooks/use-input'
 import { toast } from '@/hooks/use-toast'
+import { Fetch } from '@/utils/Fetch'
 
 const Register: NextPage = () => {
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
+    const { value: name, reset: resetName, bind: bindName } = useInput('')
+    const { value: email, reset: resetEmail, bind: bindEmail } = useInput('')
+    const { value: password, reset: resetPassword, bind: bindPassword } = useInput('')
 
-        const email = e.currentTarget.elements[0].value;
-        const pass = e.currentTarget.elements[1].value;
-        const cpass = e.currentTarget.elements[2].value;
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
 
-        if (!email || !pass || !cpass) {
+        if (name.length === 0 || email.length === 0 || password.length === 0) {
             toast({
-                title: 'Error',
-                description: 'Please fill out all the fields', variant: 'destructive'
-            });
-            return;
-        }
-
-        if (pass !== cpass) {
-            toast({
-                title: 'Error',
-                description: 'Passwords don\'t match', variant: 'destructive'
-            });
-            return;
+                title: 'Register error',
+                description: 'Please fill out email, password and confirmation',
+                variant: 'destructive',
+            })
+            return
         }
 
         if (!email.includes('@')) {
             toast({
-                title: 'Error',
-                description: 'Please provide a valid email', variant: 'destructive'
-            });
-            return;
+                title: 'Register error',
+                description: 'Please enter a valid email',
+                variant: 'destructive',
+            })
+            return
         }
 
-        if (pass.length < 8) {
+        const res = await Fetch<PostResData>('/api/register', {
+            method: 'POST',
+            body: JSON.stringify({
+                email,
+                password,
+                name,
+                description: '',
+            } satisfies PostReqBody),
+        })
+
+        if (res.error) {
             toast({
-                title: 'Error',
-                description: 'Password is too short (8 symbols minimum)', variant: 'destructive'
-            });
-            return;
+                title: 'Register error',
+                description: res.message,
+                variant: 'destructive',
+            })
+            return
         }
-
-        // TODO register fetch
 
         toast({
-            title: 'Success',
-            description: 'Successfully signed up!', variant: 'default'
-        });
+            title: 'Register error',
+            description: 'Signed up successfully!',
+            variant: 'default',
+        })
 
-        // TODO redirect
+        resetName()
+        resetEmail()
+        resetPassword()
+
+        void signIn('credentials', {
+            username: email,
+            password,
+            redirect: true,
+            callbackUrl: '/dashboard/recieve',
+        })
     }
 
     return (
-        <div className="container flex h-screen w-full flex-col gap-[50px]">
-            <Link href="/" className='flex items-center hover:text-gray-400 transition justify-start'>
-                <Icons.chevronLeft className="mr-2 h-4 w-4" />
+        <div className="flex h-screen w-full flex-col gap-[100px]">
+            <Button href="/" variant="ghost" className="w-28">
+                <ChevronLeft className="mr-2 h-5 w-5" />
                 Back
-            </Link>
+            </Button>
             <div className="mx-auto flex w-full flex-col items-center justify-center space-y-6 sm:w-[350px]">
                 <div className="flex flex-col space-y-2 text-center">
-                    <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
+                    <h1 className="text-2xl font-semibold tracking-tight">Hi, stranger!</h1>
                     <p className="text-sm text-muted-foreground">
-                        Enter your email and password to sign in to your account
+                        Enter your email and password to sign up
                     </p>
                 </div>
-                <form className='w-full flex flex-col gap-4' onSubmit={handleSubmit}>
-                    <Input type='text' name='email' placeholder='name@example.com' />
-                    <Input type='password' name='password' placeholder='Your password' />
-                    <Input type='cpassword' name='password' placeholder='Confirm password' />
-                    <Button type='submit'>Sign up</Button>
+                <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+                    <Input type="text" name="name" placeholder="Name" {...bindName} />
+                    <Input type="text" name="email" placeholder="Email" {...bindEmail} />
+                    <Input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        {...bindPassword}
+                    />
+                    <Button type="submit">Sign up</Button>
                 </form>
                 <p className="px-8 text-center text-sm text-muted-foreground">
                     <Link
