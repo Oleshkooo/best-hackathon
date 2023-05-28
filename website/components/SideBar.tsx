@@ -4,15 +4,7 @@ import Image from "next/image";
 import User from "@/public/user.svg"
 import Coin from "@/public/coin.svg"
 import { Button } from "./ui/Button";
-
-export interface Volunteer {
-    id: string
-    email: string
-    password: string
-    name: string
-    balance: number
-    description: string
-}
+import { Volunteer } from "@/app/layout";
 
 const SideBar: React.FC = () => {
     const userData: Volunteer = {
@@ -21,7 +13,9 @@ const SideBar: React.FC = () => {
         password: '1',
         name: 'John Doe',
         balance: 13,
-        description: 'descProfile'
+        description: 'descProfile',
+        servicesId: [],
+        messagesId: []
     }
 
     return <div className="flex flex-col justify-center items-center gap-4

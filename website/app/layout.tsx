@@ -16,6 +16,38 @@ interface RootLayoutProps {
     children: React.ReactNode
 }
 
+export interface Volunteer {
+    id: string
+    email: string
+    password: string
+    name: string
+    balance: number
+    description: string
+    servicesId: string[]
+    messagesId: string[]
+}
+
+export interface Service {
+    id: string
+    name: string
+    description: string
+    type: string
+    price: number
+    volunteerId: string
+}
+
+export interface Chat {
+    id: string
+    userAId: string
+    userBId: string
+    messages: Message[]
+}
+
+export interface Message {
+    sender: string
+    text: string
+}
+
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
