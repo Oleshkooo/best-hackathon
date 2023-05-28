@@ -57,7 +57,7 @@ const Profile: NextPage = () => {
     return (
         <div className="flex gap-4">
             <Image
-                className="border-4 border-solid border-black rounded-full"
+                className="border-4 border-solid border-black rounded-full h-[128px]"
                 width={128}
                 height={128}
                 src={User}

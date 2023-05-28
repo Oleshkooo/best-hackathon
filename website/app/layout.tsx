@@ -44,7 +44,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
                 <body
                     style={inter.style}
                     className="min-h-screen bg-background font-sans antialiased"
-                >
+                >   
                     <div className="flex flex-col min-h-screen justify-between">
                         {children}
                         <div className="mb-auto" />

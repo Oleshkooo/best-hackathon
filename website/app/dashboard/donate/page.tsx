@@ -41,7 +41,7 @@ const DonatePage: NextPage = () => {
         if (exp.length < 5 || exp[2] !== '/') {
             toast({
                 title: 'Error',
-                description: 'Please provide a valid expiration date', variant: 'destructive'
+                description: 'Please provide a valid expiration date (Syntax: MM/YY)', variant: 'destructive'
             });
             return;
         }
@@ -65,9 +65,9 @@ const DonatePage: NextPage = () => {
     }
 
     return (
-        <div className="px-3 py-9 flex flex-col items-center gap-6">
+        <div className="px-3 sm:py-9 flex flex-col items-center gap-6">
             <h2 className='text-3xl'>Donating</h2>
-            <form className='w-[50%] flex flex-col gap-3' onSubmit={handleSubmit}>
+            <form className='w-full sm:w-[70%] flex flex-col gap-3' onSubmit={handleSubmit}>
                 <Input onChange={handleCoinsChange} type='number' name='price' placeholder='Amount of coins you wish to purchase' />
                 <Input type='text' maxLength={16} name='hex' placeholder='Card number' />
                 <div className='flex gap-3'>

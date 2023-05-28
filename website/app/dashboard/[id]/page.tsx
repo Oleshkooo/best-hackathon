@@ -17,12 +17,12 @@ const ServicePage: NextPage = () => {
     }
 
     return (
-        <div className="pr-6 flex justify-between">
-            <div className="flex flex-col gap-6 w-[50%]">
+        <div className="mb-4 sm:mb-0 pr-6 flex flex-col items-center sm:items-start sm:flex-row justify-between gap-6 sm:gap-0">
+            <div className="flex flex-col gap-6 w-[50%] text-center sm:text-left">
                 <h2 className="text-5xl">{dummyData.name}</h2>
                 <p className="text-2xl">{dummyData.description}</p>
                 <p>{dummyData.type === 'SUPPLIER' ? 'Supplier' : 'Reciever'}:</p>
-                <div className="flex gap-2">
+                <div className="flex gap-2 justify-center sm:justify-start">
                     <Image
                         className="border-2 border-solid border-black rounded-full"
                         width={48}
@@ -33,7 +33,7 @@ const ServicePage: NextPage = () => {
                     <Button href={`/profile/${dummyData.volunteerId as string}`}>John Doe</Button>
                 </div>
             </div>
-            <div className="flex flex-col items-end w-[40%]">
+            <div className="flex flex-col items-center sm:items-end w-[40%] gap-3">
                 <p className="flex">
                     Price: {dummyData.price} <Image width={16} height={16} src={Coin} alt="coin" />
                 </p>

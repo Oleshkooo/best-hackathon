@@ -21,9 +21,9 @@ const NewServicePage: NextPage = () => {
     }
 
     return (
-        <div className="px-3 py-9 flex flex-col items-center gap-6">
+        <div className="px-3 sm:py-9 flex flex-col items-center gap-6">
             <h3 className='text-3xl'>Creating new service</h3>
-            <form className='w-[50%] flex flex-col gap-4' onSubmit={handleSubmit}>
+            <form className='w-full sm:w-[70%] flex flex-col gap-4' onSubmit={handleSubmit}>
                 <Input type='text' name='name' placeholder='Name of your service' {...bindName} />
                 <Input type='text' name='desc' placeholder='Write a short description of your service...' {...bindDesc} />
                 <div className='flex w-full'>
