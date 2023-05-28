@@ -1,15 +1,22 @@
 import { Gem, HelpingHand } from 'lucide-react'
-import { type NextPage } from 'next'
+import { type Metadata, type NextPage } from 'next'
 import { Inter } from 'next/font/google'
 
 import { Footer } from '@/components/Footer'
 import { type NavItem } from '@/components/Nav'
 import { TailwindIndicator } from '@/components/ui/Tailwind-indicator'
 import { Toaster } from '@/components/ui/Toaster'
+import { Providers } from '@/hoc/Providers'
 import '@/styles/editor.css'
 import '@/styles/global.css'
 import '@/styles/mdx.css'
 import '@/styles/toaster.css'
+
+// TODO add metadata
+export const metadata: Metadata = {
+    title: 'Website',
+    description: 'Website',
+}
 
 interface RootLayoutProps {
     children: React.ReactNode
@@ -33,15 +40,20 @@ export const navItems: NavItem[] = [
 const RootLayout: NextPage<RootLayoutProps> = ({ children }) => {
     return (
         <html lang="en">
-            <body style={inter.style} className="min-h-screen bg-background font-sans antialiased">
-                <div className="flex flex-col min-h-screen justify-between">
-                    {children}
-                    <div className="mb-auto" />
-                    <Footer />
-                </div>
-                <Toaster />
-                <TailwindIndicator />
-            </body>
+            <Providers>
+                <body
+                    style={inter.style}
+                    className="min-h-screen bg-background font-sans antialiased"
+                >
+                    <div className="flex flex-col min-h-screen justify-between">
+                        {children}
+                        <div className="mb-auto" />
+                        <Footer />
+                    </div>
+                    <Toaster />
+                    <TailwindIndicator />
+                </body>
+            </Providers>
         </html>
     )
 }

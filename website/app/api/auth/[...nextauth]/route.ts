@@ -22,11 +22,15 @@ export const authOptions: NextAuthOptions = {
                     },
                 })
 
-                if (user === null || user.password !== password) {
+                if (user == null || user.password !== password) {
                     return null
                 }
 
-                return user
+                return {
+                    id: user.id,
+                    username: user.email,
+                    password: user.password,
+                }
             },
         }),
     ],
