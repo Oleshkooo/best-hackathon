@@ -2,9 +2,9 @@ import { type Service } from '@prisma/client'
 import { type NextPage } from 'next'
 
 import { PageHeading } from '@/components/PageHeading'
-import { Card, CardDescription, CardTitle } from '@/components/ui/Card'
+import { ServiceCard } from '@/components/ServiceCard'
 
-const RecievingServices: NextPage = () => {
+const Recieve: NextPage = () => {
     const dummyServices: Service[] = [
         {
             id: 1,
@@ -37,16 +37,17 @@ const RecievingServices: NextPage = () => {
             <PageHeading heading="Recieving services">
                 You can work for users here to earn coins!
             </PageHeading>
-            <main className="flex flex-col gap-3">
+            <main className="flex flex-col gap-4">
                 {dummyServices.map(service => (
-                    <Card key={service.id} className="py-5 px-7">
-                        <CardTitle>{service.name}</CardTitle>
-                        <CardDescription className="mt-1">{service.description}</CardDescription>
-                    </Card>
+                    <ServiceCard
+                        key={service.id}
+                        title={service.name}
+                        description={service.description}
+                    />
                 ))}
             </main>
         </div>
     )
 }
 
-export default RecievingServices
+export default Recieve

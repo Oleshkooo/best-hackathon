@@ -4,7 +4,7 @@ import { type NextPage } from 'next'
 import { PageHeading } from '@/components/PageHeading'
 import { ServiceCard } from '@/components/ServiceCard'
 
-const SupplyingServices: NextPage = () => {
+const Supply: NextPage = () => {
     const dummyServices: Service[] = [
         {
             id: 1,
@@ -37,13 +37,17 @@ const SupplyingServices: NextPage = () => {
             <PageHeading heading="Supplying services">
                 You can hire users here to do work for you!
             </PageHeading>
-            <main className="flex flex-col justify-center items-center gap-3">
-                {dummyServices.map(i => (
-                    <ServiceCard {...i} />
+            <main className="flex flex-col gap-4">
+                {dummyServices.map(service => (
+                    <ServiceCard
+                        key={service.id}
+                        title={service.name}
+                        description={service.description}
+                    />
                 ))}
             </main>
         </div>
     )
 }
 
-export default SupplyingServices
+export default Supply
