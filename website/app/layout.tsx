@@ -15,8 +15,9 @@ import '@/styles/toaster.css'
 
 // TODO add metadata
 export const metadata: Metadata = {
-    title: 'Website',
-    description: 'Website',
+    title: 'SkillSwap',
+    description:
+        'We offer a fresh and innovative approach to volunteering that combines personal growth with making a charitable contribution. With our platform, you not only have the opportunity to give back to society but also the chance to acquire new skills or services through the use of time-coins.',
 }
 
 interface RootLayoutProps {

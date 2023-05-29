@@ -7,34 +7,36 @@ interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 export const Footer: React.FC<FooterProps> = memo(({ className }) => {
     return (
-        <footer
-            className={cn(
-                className,
-                'container flex flex-col items-center justify-start gap-4 border-t py-10 md:h-24 md:flex-row md:py-0',
-            )}
-        >
-            <Logo />
-            <p className="text-center text-sm leading-loose md:text-left">
-                Built by{' '}
-                <a
-                    href="https://github.com/Oleshkooo/best-hackathon"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium underline underline-offset-4"
-                >
-                    503 Team
-                </a>
-                . The source code is available on{' '}
-                <a
-                    href="https://github.com/Oleshkooo/best-hackathon"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium underline underline-offset-4"
-                >
-                    GitHub
-                </a>
-                .
-            </p>
-        </footer>
+        <div className="border-t">
+            <footer
+                className={cn(
+                    className,
+                    'container flex flex-col items-center justify-start gap-4 py-10 md:h-24 md:flex-row md:py-0',
+                )}
+            >
+                <Logo />
+                <p className="text-center text-sm leading-loose md:text-left">
+                    Built by{' '}
+                    <a
+                        href="https://github.com/Oleshkooo/best-hackathon"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium underline underline-offset-4"
+                    >
+                        503 Team
+                    </a>
+                    . The source code is available on{' '}
+                    <a
+                        href="https://github.com/Oleshkooo/best-hackathon"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="font-medium underline underline-offset-4"
+                    >
+                        GitHub
+                    </a>
+                    .
+                </p>
+            </footer>
+        </div>
     )
 })
