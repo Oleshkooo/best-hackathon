@@ -52,7 +52,7 @@ const RootLayout: NextPage<RootLayoutProps> = ({ session, children }) => {
                     style={inter.style}
                     className="min-h-screen bg-background font-sans antialiased"
                 >
-                    <div className="flex flex-col min-h-screen justify-between">
+                    <div className="flex min-h-screen flex-col justify-between">
                         {children}
                         <div className="mb-auto" />
                         <Footer />

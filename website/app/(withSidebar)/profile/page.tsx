@@ -55,7 +55,7 @@ const Profile: NextPage<ProfileProps> = async () => {
     }
 
     return (
-        <div className="w-full flex flex-col gap-6">
+        <div className="flex w-full flex-col gap-6">
             <PageHeading heading={user.name}>
                 {user.email}
                 <br />

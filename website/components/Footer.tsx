@@ -10,7 +10,7 @@ export const Footer: React.FC<FooterProps> = memo(({ className }) => {
         <footer
             className={cn(
                 className,
-                'container flex flex-col items-center justify-start gap-4 py-10 md:h-24 md:flex-row md:py-0 border-t',
+                'container flex flex-col items-center justify-start gap-4 border-t py-10 md:h-24 md:flex-row md:py-0',
             )}
         >
             <Logo />

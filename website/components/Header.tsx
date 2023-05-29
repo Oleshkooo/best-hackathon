@@ -11,7 +11,7 @@ interface HeaderProps {
 export const Header: React.FC<HeaderProps> = memo(({ children }) => {
     return (
         <header className="sticky top-0 z-40 border-b bg-background">
-            <div className="container h-16 flex justify-between items-center py-4">
+            <div className="container flex h-16 items-center justify-between py-4">
                 <div className="flex items-center gap-10">
                     <Link href="/" className="flex items-center space-x-2">
                         <Logo />
@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = memo(({ children }) => {
                     </Link>
                     <div className="flex items-center gap-1">{children}</div>
                 </div>
-                <div className="flex text-center gap-5">
+                <div className="flex gap-5 text-center">
                     <Button variant="outline" href="/dashboard/new">
                         New service
                     </Button>

@@ -106,9 +106,9 @@ export const DonateClient: React.FC<DonateClientProps> = ({ volunteerId }) => {
     }, [coins])
 
     return (
-        <div className="w-full flex flex-col items-center gap-6 px-3 sm:py-9">
+        <div className="flex w-full flex-col items-center gap-6 px-3 sm:py-9">
             <PageHeading heading="Donating" />
-            <form className="w-[80%]  flex flex-col gap-4" onSubmit={handleSubmit}>
+            <form className="flex  w-[80%] flex-col gap-4" onSubmit={handleSubmit}>
                 <Input type="number" name="price" placeholder="Coins amount" {...bindCoins} />
                 <Input
                     type="text"

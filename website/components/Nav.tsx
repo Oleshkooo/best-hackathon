@@ -33,7 +33,7 @@ export const Nav: React.FC<NavProps> = memo(({ items }) => {
                             path === item.href ? 'bg-accent' : 'transparent',
                         )}
                     >
-                        <span className="w-4 mr-3 py-1">{item.icon}</span>
+                        <span className="mr-3 w-4 py-1">{item.icon}</span>
                         <span>{item.title}</span>
                     </span>
                 </Link>

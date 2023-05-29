@@ -11,7 +11,7 @@ interface CardComponentProps {
 export const CardComponent: React.FC<CardComponentProps> = memo(
     ({ title, description, children }) => {
         return (
-            <Card className="py-5 px-7 hover:bg-slate-50 transition-all duration-300">
+            <Card className="px-7 py-5 transition-all duration-300 hover:bg-slate-50">
                 {title != null ? <CardTitle>{title}</CardTitle> : null}
                 {description != null ? (
                     <CardDescription className="mt-2">{description}</CardDescription>

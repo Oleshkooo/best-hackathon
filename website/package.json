@@ -1,6 +1,7 @@
 {
     "name": "503-hackathon",
     "version": "1.0.0",
+    "license": "CC-BY-NC-4.0",
     "scripts": {
         "postinstall": "npx prisma generate",
         "dev": "next dev",

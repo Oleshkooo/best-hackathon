@@ -25,7 +25,7 @@ const Supply: NextPage = async () => {
             <PageHeading heading="Supplying services">
                 You can hire users here to do work for you!
             </PageHeading>
-            <main className="p-2 flex flex-col gap-4">
+            <main className="flex flex-col gap-4 p-2">
                 {supplies.map(service => (
                     <Link key={service.id} href={`/dashboard/${service.id}`}>
                         <CardComponent title={service.name} description={service.description} />

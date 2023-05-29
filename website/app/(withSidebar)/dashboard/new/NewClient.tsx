@@ -64,9 +64,9 @@ export const NewClient: React.FC<NewClientProps> = ({ id }) => {
     }
 
     return (
-        <div className="w-full flex flex-col items-center gap-6 px-3 sm:py-9">
+        <div className="flex w-full flex-col items-center gap-6 px-3 sm:py-9">
             <PageHeading heading="Creating new service" />
-            <form className="w-[80%] flex flex-col gap-4" onSubmit={handleSubmit}>
+            <form className="flex w-[80%] flex-col gap-4" onSubmit={handleSubmit}>
                 <Input type="text" name="name" placeholder="Name of your service" {...bindName} />
                 <Input
                     type="text"

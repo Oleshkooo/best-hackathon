@@ -39,10 +39,10 @@ const ServiceExact: NextPage<ServiceExactProps> = async ({ params }) => {
         (service.type === 'SUPPLIER' ? ' - Supplier' : ' - Reciever')
 
     return (
-        <div className="w-full flex flex-col gap-6">
-            <div className="w-full flex justify-between items-center">
+        <div className="flex w-full flex-col gap-6">
+            <div className="flex w-full items-center justify-between">
                 <PageHeading heading={service.name}>{service.description}</PageHeading>
-                <div className="flex flex-col items-center sm:items-end w-[40%] gap-3">
+                <div className="flex w-[40%] flex-col items-center gap-3 sm:items-end">
                     <Button>{service.type === 'SUPPLIER' ? 'Buy it' : 'Provide help'}</Button>
                 </div>
             </div>

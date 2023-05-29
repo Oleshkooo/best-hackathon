@@ -90,7 +90,7 @@ const Register: NextPage = () => {
                         Enter your email and password to sign up
                     </p>
                 </div>
-                <form className="w-full flex flex-col gap-4" onSubmit={handleSubmit}>
+                <form className="flex w-full flex-col gap-4" onSubmit={handleSubmit}>
                     <Input type="text" name="name" placeholder="Name" {...bindName} />
                     <Input type="text" name="email" placeholder="Email" {...bindEmail} />
                     <Input
@@ -104,7 +104,7 @@ const Register: NextPage = () => {
                 <p className="px-8 text-center text-sm text-muted-foreground">
                     <Link
                         href="/login"
-                        className="hover:text-brand underline underline-offset-4 hover:text-gray-400 transition"
+                        className="hover:text-brand underline underline-offset-4 transition hover:text-gray-400"
                     >
                         Already have an account? Sign in
                     </Link>
