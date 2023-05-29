@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { memo } from 'react'
 
 import { cn } from '@/utils/cn'
 
@@ -15,7 +16,7 @@ interface NavProps {
     items: NavItem[]
 }
 
-export const Nav: React.FC<NavProps> = ({ items }) => {
+export const Nav: React.FC<NavProps> = memo(({ items }) => {
     const path = usePathname()
 
     if (items?.length === 0) {
@@ -39,4 +40,4 @@ export const Nav: React.FC<NavProps> = ({ items }) => {
             ))}
         </nav>
     )
-}
+})

@@ -1,14 +1,14 @@
 import Link from 'next/link'
+import { memo } from 'react'
 
 import { Logo } from '@/components/Logo'
-
-import { Button } from './ui/Button'
+import { Button } from '@/components/ui/Button'
 
 interface HeaderProps {
     children?: React.ReactNode
 }
 
-export const Header: React.FC<HeaderProps> = ({ children }) => {
+export const Header: React.FC<HeaderProps> = memo(({ children }) => {
     return (
         <header className="sticky top-0 z-40 border-b bg-background">
             <div className="container h-16 flex justify-between items-center py-4">
@@ -30,4 +30,4 @@ export const Header: React.FC<HeaderProps> = ({ children }) => {
             </div>
         </header>
     )
-}
+})

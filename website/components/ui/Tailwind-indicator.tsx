@@ -1,4 +1,6 @@
-export const TailwindIndicator: React.FC = () => {
+import { memo } from 'react'
+
+export const TailwindIndicator: React.FC = memo(() => {
     if (process.env.NODE_ENV === 'production') return null
 
     return (
@@ -11,4 +13,4 @@ export const TailwindIndicator: React.FC = () => {
             <div className="hidden 2xl:block">2xl</div>
         </div>
     )
-}
+})

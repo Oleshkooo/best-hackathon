@@ -1,9 +1,11 @@
+import { memo } from 'react'
+
 import { Logo } from '@/components/Logo'
 import { cn } from '@/utils/cn'
 
 interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-export const Footer: React.FC<FooterProps> = ({ className }) => {
+export const Footer: React.FC<FooterProps> = memo(({ className }) => {
     return (
         <footer
             className={cn(
@@ -35,4 +37,4 @@ export const Footer: React.FC<FooterProps> = ({ className }) => {
             </p>
         </footer>
     )
-}
+})

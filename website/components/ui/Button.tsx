@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import Link from 'next/link'
-import { forwardRef } from 'react'
+import { forwardRef, memo } from 'react'
 
 import { cn } from '@/utils/cn'
 
@@ -38,23 +38,25 @@ export interface ButtonProps
     href?: string
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-    ({ className, href, variant, size, ...props }, ref) => {
-        if (href !== undefined) {
-            return (
-                <Link href={href} className={cn(buttonVariants({ variant, size, className }))}>
-                    {props.children}
-                </Link>
-            )
-        }
+export const Button = memo(
+    forwardRef<HTMLButtonElement, ButtonProps>(
+        ({ className, href, variant, size, ...props }, ref) => {
+            if (href !== undefined) {
+                return (
+                    <Link href={href} className={cn(buttonVariants({ variant, size, className }))}>
+                        {props.children}
+                    </Link>
+                )
+            }
 
-        return (
-            <button
-                className={cn(buttonVariants({ variant, size, className }))}
-                ref={ref}
-                {...props}
-            />
-        )
-    },
+            return (
+                <button
+                    className={cn(buttonVariants({ variant, size, className }))}
+                    ref={ref}
+                    {...props}
+                />
+            )
+        },
+    ),
 )
 Button.displayName = 'Button'
