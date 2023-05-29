@@ -1,5 +1,6 @@
 **/node_modules
 **/pnpm-lock.yaml
+**/yarn.lock
 **/.pnp
 **/.pnp.js
 
